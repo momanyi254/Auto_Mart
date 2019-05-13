@@ -115,6 +115,8 @@ a{
     background-color: bisque;  
     color: black;
     margin: auto;
-    padding:10px;
+    padding:20px;
     overflow:auto;
+    display: grid;
+   
 }
