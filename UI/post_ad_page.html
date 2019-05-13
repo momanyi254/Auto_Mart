@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>homepage</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+                <span id="logo"> Auto Mart</span>
+            <ul>
+
+                <li>
+                    <a href="Home_page.html">Log Out</a>
+                </li>
+                <li>
+                    <a href="user.html">My Account</a>
+                </li>
+                <li>
+                    <a href="Home_page.html">Home</a>
+                </li>
+            </ul>
+
+        </div>
+        <hr>
+        <div class="user">
+            <h2>post a vehicle for sale.</h2>
+            <label>Ad ID</label>: 0258
+            <form id="sale">
+                <p>Upload vehicle Image</p>
+                    <input type="file" name="pic" accept="image/*">
+            
+               
+
+                <p>Date of posting:</p>
+                <input type="date" name="date" placeholder="created on" required>
+
+                <p> Vehicle condition/state:</p>
+
+                <input type="radio" name="codition" value="new" > new
+                <input type="radio" name="condition" value="used"> used
+                <br/>
+                <p> Status:</p>
+
+                <input type="radio" name="available" value="available" > available
+                <input type="radio" name="sold" value="sold"> sold
+                <br/>
+                <p> Manufacture</p>
+                <select id="manf" name="manufacturef" placeholder="manufacturef" required>
+                    <option value="TOYOTA">Toyota</option>
+                    <option value="GENERAL MOTORS">General Motors Company</option>
+                    <option value="FORD MOTOR COMPANY">Ford Motor Company</option>
+                    <option value="MERCEDES BENZ">Mercedes Benz</option>
+                    <option value="CHEVROLET">USA</option>
+                    <option value="HUMMER">USA</option>
+
+                </select>
+
+                <p> Model</p>
+                <select id="mdl" name="model" placeholder="manufacturef" required>
+                    <option value="TOYOTA">Toyota</option>
+                    <option value="FORD">Ford</option>
+                    <option value="MERCEDE BENZ">Mercedes Benz</option>
+                    <option value="RANGE ROVER">Range Rover</option>
+                    <option value="LAND ROVER">Land Rover</option>
+                    <option value="CHEVROLET">Chevrolet</option>
+                    <option value="HUMMER">Hummer</option>
+                </select>
+                <p> Body Type</p>
+                <select id="bt" name="type" placeholder="manufacturef" required>
+                    <option value="VAN">Van</option>
+                    <option value="TRUCK">Truck</option>
+                    <option value="TRAILER">Trailer</option>
+                    <option value="BUS">Bus</option>
+                    <option value="CAR">Car</option>
+                    <option value="PRADO">Pradp</option>
+                    <option value="PICK UP">Pick Up</option>
+
+                </select>
+                <br/>
+                <p> Price</p>
+                <input type="float" name="price" placeholder="price" required>
+                <br><br>
+
+                <button id="submit" onclick="postad()">Post Ad</button>
+                <br>
+                </form>
+        </div>
+        <hr>
+        <div class="footer">
+            <ul>
+
+                <li>
+                    <a href="purchase.html">contact us</a>
+                </li>
+
+                <li>
+                    <a href="login.html">Flag /Report Incident</a>
+                </li>
+                <li>
+                    <a href="signup.html">Feedback</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
