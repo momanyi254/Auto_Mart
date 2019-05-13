@@ -1,0 +1,112 @@
+.dropdown {
+    position:relative;
+    display:inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    margin: 35px 600px 0px 0px;
+    
+    
+   
+}
+.dropdown-content a {
+    display: block;
+    float: right;
+    padding: 5px;
+}
+.dropdown:hover .dropdown-content {
+    display:grid;
+}
+
+body{
+ 
+    background-image:url('images/jeep.jpg') ;
+    background-repeat: no-repeat;
+    background-size: cover; 
+  
+}
+.container {
+   
+    width:65%;
+    border:none;
+    margin:auto; 
+    height:480px
+}
+.header{
+    background-image: url('images/001.jpg');
+    background-repeat: no-repeat;
+    background-size: 150px 80px;
+    height: 15%;
+    color: black;
+    background-color:grey;
+    padding-bottom: 5px;
+}
+.footer {
+    padding-top: 10px;
+    height: 15%;
+    color: black;
+    background-color:grey;
+
+
+}
+
+ul li {
+	text-align: center;
+    float:right;
+    list-style: none;
+}
+
+#logo {
+    padding: 10px 10px 0px 10px;
+    font-weight: bold;
+    color: white;
+
+
+}
+a{
+    text-decoration: none;
+    float: right;
+    padding: 5px;
+    margin: 5px;
+    color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color:skyblue;
+    
+   
+}
+ a:hover{
+    background-color:wheat;
+    }
+
+.grid-item {
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 5px;
+    text-align:justify;
+    margin:10px 10px;
+}
+.intro{
+    width: 60%;
+    margin: auto;
+    padding: 5%;
+    text-align: center
+}
+
+.content{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        text-align: justify;
+    
+    }
+
+.user{
+    height: 400px;
+    background-color: bisque;  
+    color: black;
+    margin: auto;
+    padding:10px;
+    overflow:auto;
+}
