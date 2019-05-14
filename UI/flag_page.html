@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>homepage</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+                <span id="logo"> Auto Mart</span>
+            <ul>
+
+                <li>
+                    <a href="user_page.html">My Dashboad</a>
+                </li>
+
+                
+                <li>
+                    <a href="Homepage.html">Home</a>
+                </li>
+            </ul>
+
+        </div>
+        <hr>
+        <div class="user">
+            <h2>Report an incident.</h2>
+            <form>
+                <p>Flag ID:</p>
+                 0001
+                 <br>
+                <p>car ID:</p>
+                00258
+               
+            
+                <br/>
+                <p>Reason for flaging</p>
+                <select id="flag" name="flag" required>
+                    <option value="reason">Upreciated price</option>
+                    <option value="reason">wierd demand</option>
+                    <option value="reason">stolen</option>
+                    <option value="reason">To Old to be sold</option>
+                    <option value="reason">others</option>
+                </select>
+            
+                <p> Describe:</p>
+                <textarea name="message" rows="10" cols="60">
+                </textarea>
+                <br>
+                <button id="submit" onclick="flag()">Submit</button>
+                </form>
+        </div>
+        <hr>
+        <div class="footer">
+            <ul>
+
+                <li>
+                    <a href="">Feedback</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
