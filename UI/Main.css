@@ -22,20 +22,21 @@ display:grid;
 
 body{
 
-background-image:url('images/jeep.jpg') ;
+background-image:url('images/200.jpg') ;
 background-repeat: no-repeat;
 background-size: cover; 
 
 }
 .container {
 
-width:65%;
+width:70%;
 border:none;
 margin:auto; 
-height:480px
+height:550px;
+font-family: Roboto;
 }
 .header{
-background-image: url('images/001.jpg');
+background-image: url('images/ff.jpg');
 background-repeat: no-repeat;
 background-size: 150px 80px;
 height: 15%;
@@ -90,14 +91,14 @@ background-color:wheat;
 }
 
 .grid-item {
-border: 1px solid black;
+/* border: 1px solid black; */
 border-radius: 15px;
-padding: 5px;
+padding-top: 15px;
 text-align:justify;
 margin:10px 10px;
 }
 .intro{
-width: 60%;
+width: 85%;
 margin: auto;
 padding: 5%;
 text-align: center
@@ -111,13 +112,14 @@ text-align: justify;
 }
 
 .user{
-height: 400px;
-background-color: bisque;  
+height: 450px;
+background-color:bisque;  
 color: black;
 margin: auto;
-padding:20px;
+padding-left:20px;
 overflow:auto;
 display: grid;
+font-family:Roboto
 
 }
 
@@ -148,4 +150,9 @@ h6{
 }
 caption{
     text-align: left;
+}
+
+h4{
+    margin: 0px;
+    padding: 0px;
 }
