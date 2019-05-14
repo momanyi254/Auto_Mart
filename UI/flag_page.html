@@ -12,31 +12,25 @@
 <body>
     <div class="container">
         <div class="header">
-                <span id="logo"> Auto Mart</span>
+            <span id="logo"> Auto Mart</span>
             <ul>
-
                 <li>
-                    <a href="user_page.html">My Dashboad</a>
+                    <a href="Homepage.html">Log Out</a>
                 </li>
-
-                
                 <li>
-                    <a href="Homepage.html">Home</a>
+                    <a href="user_page.html">Back</a>
                 </li>
-            </ul>
-
         </div>
         <hr>
         <div class="user">
-            <h2>Report an incident.</h2>
+            <caption>Flag advert page</caption>
+
+
+            <h6>Logged In: Henry Momanyi</h6>
+            <h2>Flag a car Advert.</h2>
             <form>
-                <p>Flag ID:</p>
-                 0001
-                 <br>
-                <p>car ID:</p>
-                00258
-               
-            
+                Flag ID: 0001
+                <br> Car ID: 00258
                 <br/>
                 <p>Reason for flaging</p>
                 <select id="flag" name="flag" required>
@@ -46,27 +40,26 @@
                     <option value="reason">To Old to be sold</option>
                     <option value="reason">others</option>
                 </select>
-            
+
                 <p> Describe:</p>
                 <textarea name="message" rows="10" cols="60">
                 </textarea>
                 <br>
                 <button id="submit" onclick="flag()">Submit</button>
-                </form>
+            </form>
         </div>
         <hr>
         <div class="footer">
             <ul>
-
                 <li>
-                    <a href="">Feedback</a>
+                    <a href="contact.html">Contact Us</a>
+                </li>
+                <li>
+                    <a href="feedback.html">Feedback</a>
                 </li>
             </ul>
-
         </div>
     </div>
-
-
 </body>
 
 </html>

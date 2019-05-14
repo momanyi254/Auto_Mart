@@ -131,14 +131,21 @@ padding: 5px;
 table, th, td {
 border: 1px solid black;
 border-collapse: collapse;
-width: 70%;
+
 }
 
-#tb01 {
-width: 70%;    
+.tb01 {
 background-color: #f1f1c1;}
 .nav{
 border: 1px solid black;
 border-radius: 20px;
 
+}
+h6{
+    text-align: right;
+    padding: 0px;
+    margin: 0px;
+}
+caption{
+    text-align: left;
 }

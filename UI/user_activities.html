@@ -17,68 +17,48 @@
             <ul>
                 <li>
 
-                    <a href="Home_page.html">Log Out</a>
+                    <a href="Homepage.html">Log Out</a>
                 </li>
-
-                <li class="dropdown">
-                    <a href="">My Dashboad</a>
-                    <ul class="dropdown-content">
-                        <li>
-                            <a href="" id="showPrice()">My Purchases</a>
-                        </li>
-                        <li>
-                            <a href="">My Adverts</a>
-                        </li>
-                        <li>
-                            <a href="" stc "">Account Setting</a>
-                        </li>
-                    </ul>
-                </li>
-
-
                 <li>
-
-                    <a href="Homepage.html">Home</a>
+                    <a href="user_page.html">Back</a>
                 </li>
             </ul>
-
         </div>
         <hr>
         <div class="user">
-            Logged In: Henry Momanyi
+            <caption>User Activity Page</caption>
 
 
-            <table id="myTable">
+            <h6>Logged In: Henry Momanyi</h6>
 
 
+            <table id="myTable" class="tb01">
                 <caption>
-                    <b>My Sales</b>
+                    <b>My Adverts</b>
                 </caption>
+
                 <tr>
-
-                    <th>Price
-                        <button onclick="sortPrice()">&#9660</button>
-                    </th>
-
+                    <th>Car ID</th>
                     <th>Model</th>
                     <th>Body-Type</th>
                     <th>Manufacturer </th>
                     <th>State</th>
-                    <th>Car ID</th>
+                    <th>Price
+                        <button onclick="sortPrice()">&#9660</button>
+                    </th>
                     <th>Status</th>
                     <th>Edit</th>
                     <th>Delete</th>
+                    <th>Accept Offer</th>
                 </tr>
                 <tr>
-
                     <td>26543</td>
-
                     <td>Mercedes Benz</td>
                     <td>Truck</td>
                     <td id="TD">Mercedes Benz</td>
                     <td>New</td>
                     <td>009</td>
-                    <td>Available</td>
+                    <td id="sold">Available</td>
                     <td>
                         <button>
                             <a href="edit.html" id="lgbtn">Edit</a>
@@ -89,17 +69,20 @@
                             <a href="" id="lgbtn">Delete</a>
                         </button>
                     </td>
+                    <td>
+                        <button onclick="sold()">
+                            <a id="lgbtn">Mark as sold</a>
+                        </button>
+                    </td>
                 </tr>
                 <tr>
-
                     <td>99</td>
-
                     <td>Toyota</td>
                     <td>Van</td>
                     <td id="TD">Toyota</td>
                     <td>Used</td>
                     <td>25</td>
-                    <td>Available</td>
+                    <td id="sold1">Available</td>
                     <td>
                         <button>
                             <a href="edit.html" id="lgbtn">Edit</a>
@@ -110,33 +93,33 @@
                             <a href="" id="lgbtn">Delete</a>
                         </button>
                     </td>
+                    <td>
+                        <button onclick="sold1()">
+                            <a id="lgbtn">Mark as sold</a>
+                        </button>
+                    </td>
                 </tr>
-
                 <br>
                 <br>
             </table>
-
+            <br>
             <caption>
                 <b>My Purchases</b>
             </caption>
-            <table id="tb01">
+            <table id="myTable" class="tb01">
                 <tr>
-
-                    <th>Price
-                        <button onclick="sortPrice()">&#9660</button>
-                    </th>
-
+                    <th>Car ID</th>
                     <th>Model</th>
                     <th>Body-Type</th>
                     <th>Manufacturer </th>
                     <th>State</th>
-                    <th>Car ID</th>
-                     <th>Delete</th>
+                    <th>Price
+                        <button onclick="sortPrice()">&#9660</button>
+                    </th>
+                    <th>Delete</th>
                 </tr>
                 <tr>
-
                     <td>75</td>
-
                     <td>Hummer</td>
                     <td> Van</td>
                     <td id="TD">Toyota</td>
@@ -149,9 +132,7 @@
                     </td>
                 </tr>
                 <tr>
-
                     <td>120</td>
-
                     <td>Subaru</td>
                     <td>Car</td>
                     <td id="TD">Subaru</td>
@@ -163,28 +144,20 @@
                         </button>
                     </td>
                 </tr>
-
             </table>
         </div>
-
-
-
         <hr>
         <div class="footer">
             <ul>
-
                 <li>
-                    <a href="">contact us</a>
+                    <a href="contact.html">Contact Us</a>
                 </li>
                 <li>
                     <a href="feedback.html">Feedback</a>
                 </li>
             </ul>
-
         </div>
     </div>
-
-
 </body>
 
 </html>
