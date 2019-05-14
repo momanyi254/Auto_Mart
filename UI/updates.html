@@ -24,7 +24,10 @@
                     <a href="">My Dashboad</a>
                     <ul class="dropdown-content">
                         <li>
-                            <a href="updates.html" id="showPrice()">My Activities</a>
+                            <a href="" id="showPrice()">My Purchases</a>
+                        </li>
+                        <li>
+                            <a href="">My Adverts</a>
                         </li>
                         <li>
                             <a href="" stc "">Account Setting</a>
@@ -43,30 +46,19 @@
         <hr>
         <div class="user">
             Logged In: Henry Momanyi
-           <p>
-                Search <input type="text" ></input> By: <select>
-                <option>Car Id</option>
-                <option>Manufaturer</option>
-                <option>Model</option>
-                <option>Body-Type</option>
-                <option>State</option>
-                <option value="">Price Range</option>
 
-
-
-                </select> 
-                 <button >Go</button>
-               
-            </p>
 
             <table id="myTable">
 
 
-                <caption><b>Available Vehicles</b>
-                    </caption>
+                <caption>
+                    <b>My Sales</b>
+                </caption>
                 <tr>
 
-                    <th>Price  <button onclick="sortPrice()">&#9660</button> </th>
+                    <th>Price
+                        <button onclick="sortPrice()">&#9660</button>
+                    </th>
 
                     <th>Model</th>
                     <th>Body-Type</th>
@@ -74,8 +66,8 @@
                     <th>State</th>
                     <th>Car ID</th>
                     <th>Status</th>
-                    <th>Flag</th>
-                    <th>Purchase Order</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
                 <tr>
 
@@ -88,13 +80,13 @@
                     <td>009</td>
                     <td>Available</td>
                     <td>
-                        <button id="submit" onclick="open()">
-                            <a href="flag_page.html" id="lgbtn">Flag</a>
+                        <button>
+                            <a href="edit.html" id="lgbtn">Edit</a>
                         </button>
                     </td>
                     <td>
-                        <button id="submit" onclick="open()">
-                            <a href="Purchasepage.html" id="lgbtn">Buy</a>
+                        <button>
+                            <a href="" id="lgbtn">Delete</a>
                         </button>
                     </td>
                 </tr>
@@ -109,15 +101,37 @@
                     <td>25</td>
                     <td>Available</td>
                     <td>
-                        <button id="submit" onclick="open()">
-                            <a href="flag_page.html" id="lgbtn">Flag</a>
+                        <button>
+                            <a href="edit.html" id="lgbtn">Edit</a>
                         </button>
                     </td>
                     <td>
-                        <button id="submit" onclick="open()">
-                            <a href="Purchasepage.html" id="lgbtn">Buy</a>
+                        <button>
+                            <a href="" id="lgbtn">Delete</a>
                         </button>
                     </td>
+                </tr>
+
+                <br>
+                <br>
+            </table>
+
+            <caption>
+                <b>My Purchases</b>
+            </caption>
+            <table id="tb01">
+                <tr>
+
+                    <th>Price
+                        <button onclick="sortPrice()">&#9660</button>
+                    </th>
+
+                    <th>Model</th>
+                    <th>Body-Type</th>
+                    <th>Manufacturer </th>
+                    <th>State</th>
+                    <th>Car ID</th>
+                     <th>Delete</th>
                 </tr>
                 <tr>
 
@@ -128,15 +142,9 @@
                     <td id="TD">Toyota</td>
                     <td>New</td>
                     <td>21</td>
-                    <td>Available</td>
                     <td>
-                        <button id="submit" onclick="open()">
-                            <a href="flag_page.html" id="lgbtn">Flag</a>
-                        </button>
-                    </td>
-                    <td>
-                        <button id="submit" onclick="open()">
-                            <a href="Purchasepage.html" id="lgbtn">Buy</a>
+                        <button>
+                            <a href="" id="lgbtn">Delete</a>
                         </button>
                     </td>
                 </tr>
@@ -149,42 +157,32 @@
                     <td id="TD">Subaru</td>
                     <td>New</td>
                     <td>2</td>
-                    <td>Available</td>
                     <td>
-                        <button id="submit" onclick="open()">
-                            <a href="flag_page.html" id="lgbtn">Flag</a>
-                        </button>
-                    </td>
-                    <td>
-                        <button id="submit" onclick="open()">
-                            <a href="Purchasepage.html" id="lgbtn">Buy</a>
+                        <button>
+                            <a href="" id="lgbtn">Delete</a>
                         </button>
                     </td>
                 </tr>
 
             </table>
-            </div>
-
-
-
-            <hr>
-            <div class="footer">
-                <ul>
-
-                    <li>
-                        <a href="">contact us</a>
-                    </li>
-
-                    <li>
-                        <a href="flag_page.html">Flag /Report Incident</a>
-                    </li>
-                    <li>
-                        <a href="feedback.html">Feedback</a>
-                    </li>
-                </ul>
-
-            </div>
         </div>
+
+
+
+        <hr>
+        <div class="footer">
+            <ul>
+
+                <li>
+                    <a href="">contact us</a>
+                </li>
+                <li>
+                    <a href="feedback.html">Feedback</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
 
 
 </body>

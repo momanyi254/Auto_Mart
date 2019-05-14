@@ -1,140 +1,144 @@
 .dropdown {
-    position:relative;
-    display:inline-block;
+position:relative;
+display:inline-block;
 }
 
 .dropdown-content {
-    display: none;
-    position: absolute;
-    margin: 35px 600px 0px 0px;
-    
-    
-   
+display: none;
+position: absolute;
+margin: 35px 600px 0px 0px;
+
+
+
 }
 .dropdown-content a {
-    display: block;
-    float: right;
-    padding: 5px;
+display: block;
+float: right;
+padding: 5px;
 }
 .dropdown:hover .dropdown-content {
-    display:grid;
+display:grid;
 }
 
 body{
- 
-    background-image:url('images/jeep.jpg') ;
-    background-repeat: no-repeat;
-    background-size: cover; 
-  
+
+background-image:url('images/jeep.jpg') ;
+background-repeat: no-repeat;
+background-size: cover; 
+
 }
 .container {
-   
-    width:65%;
-    border:none;
-    margin:auto; 
-    height:480px
+
+width:65%;
+border:none;
+margin:auto; 
+height:480px
 }
 .header{
-    background-image: url('images/001.jpg');
-    background-repeat: no-repeat;
-    background-size: 150px 80px;
-    height: 15%;
-    color: black;
-    background-color:grey;
-    padding-bottom: 5px;
+background-image: url('images/001.jpg');
+background-repeat: no-repeat;
+background-size: 150px 80px;
+height: 15%;
+color: black;
+background-color:grey;
+padding-bottom: 5px;
 }
 .footer {
-    padding-top: 10px;
-    height: 15%;
-    color: black;
-    background-color:grey;
+padding-top: 10px;
+height: 15%;
+color: black;
+background-color:grey;
 
 
 }
 
 ul li {
-	text-align: center;
-    float:right;
-    list-style: none;
+text-align: center;
+float:right;
+list-style: none;
 }
 
 #logo {
-    padding: 10px 10px 0px 10px;
-    font-weight: bold;
-    color: white;
+padding: 10px 10px 0px 10px;
+font-weight: bold;
+color: white;
 
 
 }
 
 #lgbtn{
-    border: 0;
-    padding:0;
-    background-color: transparent;
-    color: black
+border: 0;
+padding:0;
+background-color: transparent;
+color: black
 
 }
 a{
-    text-decoration: none;
-    float: right;
-    padding: 5px;
-    margin: 5px;
-    color: white;
-    border: 1px solid black;
-    border-radius: 10px;
-    background-color:skyblue;
-    
-   
+text-decoration: none;
+float: right;
+padding: 5px;
+margin: 5px;
+color: white;
+border: 1px solid black;
+border-radius: 10px;
+background-color:skyblue;
+
+
 }
- a:hover{
-    background-color:wheat;
-    }
+a:hover{
+background-color:wheat;
+}
 
 .grid-item {
-    border: 1px solid black;
-    border-radius: 15px;
-    padding: 5px;
-    text-align:justify;
-    margin:10px 10px;
+border: 1px solid black;
+border-radius: 15px;
+padding: 5px;
+text-align:justify;
+margin:10px 10px;
 }
 .intro{
-    width: 60%;
-    margin: auto;
-    padding: 5%;
-    text-align: center
+width: 60%;
+margin: auto;
+padding: 5%;
+text-align: center
 }
 
 .content{
-        display: grid;
-        grid-template-columns: auto auto auto;
-        text-align: justify;
-    
-    }
+display: grid;
+grid-template-columns: auto auto auto;
+text-align: justify;
+
+}
 
 .user{
-    height: 400px;
-    background-color: bisque;  
-    color: black;
-    margin: auto;
-    padding:20px;
-    overflow:auto;
-    display: grid;
+height: 400px;
+background-color: bisque;  
+color: black;
+margin: auto;
+padding:20px;
+overflow:auto;
+display: grid;
 
 }
 
-    table {
-        border-spacing: 0;
-        width: 100%;
-        border: 1px solid black;
-       
-      }
-      
-      th, td {
-        text-align: left;
-        padding: 16px;
-       
+
+th, td {
+text-align: left;
+padding: 5px;
+
 }
+
+table, th, td {
+border: 1px solid black;
+border-collapse: collapse;
+width: 70%;
+}
+
+#tb01 {
+width: 70%;    
+background-color: #f1f1c1;}
 .nav{
-    border: 1px solid black;
-    border-radius: 20px;
+border: 1px solid black;
+border-radius: 20px;
 
 }
