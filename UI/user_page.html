@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>homepage</title>
+    <link rel="stylesheet" href="Main.css">
+    <script src="Main.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <span id="logo"> Auto Mart</span>
+            <ul>
+                <li>
+
+                    <a href="Home_page.html">Log Out</a>
+                </li>
+
+                <li class="dropdown">
+                    <a href="">My Dashboad</a>
+                    <ul class="dropdown-content">
+                        <li>
+                            <a href="" id="showPrice()">My Purchases</a>
+                        </li>
+                        <li>
+                            <a href="">My Adverts</a>
+                        </li>
+                        <li>
+                            <a href="" stc "">Account Setting</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li>
+
+                    <a href="Homepage.html">Home</a>
+                </li>
+            </ul>
+
+        </div>
+        <hr>
+        <div class="user">
+            Logged In: Henry Momanyi
+           <p>
+                Search <input type="text" ></input> By: <select>
+                <option>Car Id</option>
+                <option>Manufaturer</option>
+                <option>Model</option>
+                <option>Body-Type</option>
+                <option>State</option>
+                <option value="">Price Range</option>
+
+
+
+                </select> 
+                 <button >Go</button>
+               
+            </p>
+
+            <table id="myTable">
+
+
+                <caption><b>Available Vehicles</b>
+                    </caption>
+                <tr>
+
+                    <th>Price  <button onclick="sortPrice()">&#9660</button> </th>
+
+                    <th>Model</th>
+                    <th>Body-Type</th>
+                    <th>Manufacturer </th>
+                    <th>State</th>
+                    <th>Car ID</th>
+                    <th>Status</th>
+                    <th>Flag</th>
+                    <th>Purchase Order</th>
+                </tr>
+                <tr>
+
+                    <td>26543</td>
+
+                    <td>Mercedes Benz</td>
+                    <td>Truck</td>
+                    <td id="TD">Mercedes Benz</td>
+                    <td>New</td>
+                    <td>009</td>
+                    <td>Available</td>
+                    <td>
+                        <button id="submit" onclick="open()">
+                            <a href="flag_page.html" id="lgbtn">Flag</a>
+                        </button>
+                    </td>
+                    <td>
+                        <button id="submit" onclick="open()">
+                            <a href="Purchasepage.html" id="lgbtn">Buy</a>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+
+                    <td>99</td>
+
+                    <td>Toyota</td>
+                    <td>Van</td>
+                    <td id="TD">Toyota</td>
+                    <td>Used</td>
+                    <td>25</td>
+                    <td>Available</td>
+                    <td>
+                        <button id="submit" onclick="open()">
+                            <a href="flag_page.html" id="lgbtn">Flag</a>
+                        </button>
+                    </td>
+                    <td>
+                        <button id="submit" onclick="open()">
+                            <a href="Purchasepage.html" id="lgbtn">Buy</a>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+
+                    <td>75</td>
+
+                    <td>Hummer</td>
+                    <td> Van</td>
+                    <td id="TD">Toyota</td>
+                    <td>New</td>
+                    <td>21</td>
+                    <td>Available</td>
+                    <td>
+                        <button id="submit" onclick="open()">
+                            <a href="flag_page.html" id="lgbtn">Flag</a>
+                        </button>
+                    </td>
+                    <td>
+                        <button id="submit" onclick="open()">
+                            <a href="Purchasepage.html" id="lgbtn">Buy</a>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+
+                    <td>120</td>
+
+                    <td>Subaru</td>
+                    <td>Car</td>
+                    <td id="TD">Subaru</td>
+                    <td>New</td>
+                    <td>2</td>
+                    <td>Available</td>
+                    <td>
+                        <button id="submit" onclick="open()">
+                            <a href="" id="lgbtn">Flag</a>
+                        </button>
+                    </td>
+                    <td>
+                        <button id="submit" onclick="open()">
+                            <a href="Purchasepage.html" id="lgbtn">Buy</a>
+                        </button>
+                    </td>
+                </tr>
+
+            </table>
+            </div>
+
+
+
+            <hr>
+            <div class="footer">
+                <ul>
+
+                    <li>
+                        <a href="">contact us</a>
+                    </li>
+
+                    <li>
+                        <a href="flag_page.html">Flag /Report Incident</a>
+                    </li>
+                    <li>
+                        <a href="feedback.html">Feedback</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+
+</body>
+
+</html>
