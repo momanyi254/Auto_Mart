@@ -29,10 +29,11 @@ background-size: cover;
 }
 .container {
 
-width:65%;
+width:70%;
 border:none;
 margin:auto; 
-height:480px
+height:480px;
+font-family: roboto;
 }
 .header{
 background-image: url('images/001.jpg');
@@ -90,14 +91,14 @@ background-color:wheat;
 }
 
 .grid-item {
-border: 1px solid black;
-border-radius: 15px;
+/* border: 1px solid black;
+border-radius: 15px; */
 padding: 5px;
 text-align:justify;
 margin:10px 10px;
 }
 .intro{
-width: 60%;
+width: 80%;
 margin: auto;
 padding: 5%;
 text-align: center
