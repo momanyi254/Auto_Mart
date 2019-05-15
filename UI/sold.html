@@ -21,11 +21,8 @@
                 </li>
 
                 <li class="dropdown">
-                    <a href="">My Dashboad</a>
+                    <a href="admin_page.html">My Dashboad</a>
                     <ul class="dropdown-content">
-                        <li>
-                            <a href="user_activities.html">My Activities</a>
-                        </li>
                         <li>
                             <a href="Reset.html">Change Password</a>
                         </li>
@@ -38,9 +35,9 @@
         <div class="user">
             <caption><b>Admin Dashboad</b></caption>
             <h6>Logged In: Admin</h6>
-            <p>
-                Search
-                <input type="text"></input> By:
+           <p >
+                Search   
+                <input id="srch" type="text" placeholder="Search by..."></input> By:
                 <select>
                     <option>Car Id</option>
                     <option>Manufaturer</option>
@@ -50,8 +47,8 @@
                     <option>Price Range</option>
                 </select>
                 <button>Go</button>
+             
             </p>
-            <br>
             <table id="myTable" class="tb01">
             <caption> <b>All Sold Cars</b></caption>
                    <tr>
