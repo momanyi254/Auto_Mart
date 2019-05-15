@@ -8,8 +8,6 @@ display: none;
 position: absolute;
 margin: 35px 600px 0px 0px;
 
-
-
 }
 .dropdown-content a {
 display: block;
@@ -21,14 +19,11 @@ display:grid;
 }
 
 body{
-
 background-image:url('images/jeep.jpg') ;
 background-repeat: no-repeat;
 background-size: cover; 
-
 }
 .container {
-
 width:70%;
 border:none;
 margin:auto; 
@@ -49,8 +44,6 @@ padding-top: 10px;
 height: 15%;
 color: black;
 background-color:grey;
-
-
 }
 
 ul li {
@@ -63,8 +56,6 @@ list-style: none;
 padding: 10px 10px 0px 10px;
 font-weight: bold;
 color: white;
-
-
 }
 
 #lgbtn{
@@ -83,16 +74,12 @@ color: white;
 border: 1px solid black;
 border-radius: 10px;
 background-color:skyblue;
-
-
 }
 a:hover{
 background-color:wheat;
 }
 
 .grid-item {
-/* border: 1px solid black;
-border-radius: 15px; */
 padding: 5px;
 text-align:justify;
 margin:10px 10px;
@@ -108,7 +95,6 @@ text-align: center
 display: grid;
 grid-template-columns: auto auto auto;
 text-align: justify;
-
 }
 
 .user{
@@ -119,9 +105,7 @@ margin: auto;
 padding:20px;
 overflow:auto;
 display: grid;
-
 }
-
 
 th, td {
 text-align: left;
@@ -143,29 +127,34 @@ border-radius: 20px;
 
 }
 h6{
-    text-align: right;
-    padding: 0px;
-    margin: 0px;
+text-align: right;
+padding: 0px;
+margin: 0px;
 }
 caption{
-    text-align: left;
+text-align: left;
 }
 .candidate{
-    display: grid;
-    /* height: 470px; */
-    background-color: bisque;
-    /* overflow: auto;   */
-    color: black;
-    /* width: 550px; */
-    margin: auto;
-    /* margin-top:2%;
-    margin-bottom:2%; */
-    padding-left: 3%
+display: grid;
+background-color: bisque;
+color: black;
+margin: auto;
+padding-left: 3%
 }
 #h3{
-    text-align: center;
+text-align: center;
 }
 #sub{
-    height: 30px;
-    width: 70px;
+height: 30px;
+width: 70px;
+}
+#scl{
+
+float: none;
+padding: 0;
+margin: 0;
+color:black;
+border: 1px solid black;
+border-radius: 1px;
+background-color:transparent;
 }
