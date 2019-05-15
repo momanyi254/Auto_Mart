@@ -150,3 +150,22 @@ h6{
 caption{
     text-align: left;
 }
+.candidate{
+    display: grid;
+    /* height: 470px; */
+    background-color: bisque;
+    /* overflow: auto;   */
+    color: black;
+    /* width: 550px; */
+    margin: auto;
+    /* margin-top:2%;
+    margin-bottom:2%; */
+    padding-left: 3%
+}
+#h3{
+    text-align: center;
+}
+#sub{
+    height: 30px;
+    width: 70px;
+}
