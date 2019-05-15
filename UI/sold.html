@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin2</title>
+    <link rel="stylesheet" href="Main.css">
+    <script src="Main.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <span id="logo"> Auto Mart</span>
+            <ul>
+                <li>
+
+                    <a href="Homepage.html">Log Out</a>
+                </li>
+
+                <li class="dropdown">
+                    <a href="">My Dashboad</a>
+                    <ul class="dropdown-content">
+                        <li>
+                            <a href="user_activities.html">My Activities</a>
+                        </li>
+                        <li>
+                            <a href="Reset.html">Change Password</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+        <hr>
+        <div class="user">
+            <caption><b>Admin Dashboad</b></caption>
+            <h6>Logged In: Admin</h6>
+            <p>
+                Search
+                <input type="text"></input> By:
+                <select>
+                    <option>Car Id</option>
+                    <option>Manufaturer</option>
+                    <option>Model</option>
+                    <option>Body-Type</option>
+                    <option>State</option>
+                    <option>Price Range</option>
+                </select>
+                <button>Go</button>
+            </p>
+            <br>
+            <table id="myTable" class="tb01">
+            <caption> <b>All Sold Cars</b></caption>
+                   <tr>
+                       <th>Posted By</th>
+                       <th>Car Id</th>
+                       <th>Date</th>
+                       <th>Model</th>
+                       <th>Body-Type</th>
+                       <th>Manufacturer</th>
+                       <th>State</th>
+                       <th>Price</th>
+                       <th>Status</th>
+                       <th>Delete</th>
+                   </tr>
+                   <tr>
+                       <td>User 1</td>
+                       <td>789</td>
+                       <td>11/11/2011</td>
+                       <td>Mercedes Benz</td>
+                       <td>Car</td>
+                       <td>Mercedes Benz</td>
+                       <td>New</td>
+                       <td>$5,000</td>
+                       <td>Sold</td>
+                       <td>
+                            <button>
+                                <a href="" id="lgbtn">Delete</a>
+                            </button>
+                        </td>
+                   </tr>
+                   <tr>
+                       <td>User 6</td>
+                       <td>88 552200</td>
+                       <td>11/11/1990</td>
+                       <td>Toyota</td>
+                       <td>Car</td>
+                       <td>Toyota</td>
+                       <td>Used</td>
+                       <td>$ 400,000</td>
+                       <td>Sold</td>
+                       <td>
+                            <button>
+                                <a href="" id="lgbtn">Delete</a>
+                            </button>
+                        </td>
+                   </tr>
+                   <tr>
+                       <td>User 9</td>
+                       <td>45 7855 5</td>
+                       <td>11/11/2018</td>
+                       <td>Range Rover</td>
+                       <td>Car</td>
+                       <td>General Motors Co</td>
+                       <td>New</td>
+                       <td>$ 54,000</td>
+                       <td>Sold</td>
+                       <td>
+                            <button>
+                                <a href="" id="lgbtn">Delete</a>
+                            </button>
+                        </td>
+                   </tr>
+               </table>
+
+
+            
+        </div>
+        <hr>
+        <div class="footer">
+            <ul>
+                <li>
+                    <a href="contact.html">Contact Us</a>
+                </li>
+                <li>
+                    <a href="feedback.html">Feedback</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</body>
+
+</html>
