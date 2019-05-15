@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Userpage2</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <span id="logo"> Auto Mart</span>
+            <ul>
+                <li>
+
+                    <a href="index.html">Log Out</a>
+                </li>
+                <li>
+                    <a href="user_page.html">My Dashboard</a>
+                </li>
+            </ul>
+        </div>
+        <hr>
+        <div class="user">
+            <caption>
+                <b>My Activities</b>
+            </caption>
+
+
+            <h6>Logged In: Henry Momanyi</h6>
+
+
+            <table id="myTable" class="tb01">
+                <caption>
+                    <b>My Sale Adverts.</b>
+                </caption>
+
+                <tr>
+                    <th>Car ID</th>
+                    <th>Model</th>
+                    <th>Body-Type</th>
+                    <th>Manufacturer </th>
+                    <th>State</th>
+                    <th>Price
+                        <button onclick="sortPrice()">&#9660</button>
+                    </th>
+                    <th>Status</th>
+                    <th>Edit</th>
+                    <th>Accept Offer</th>
+                </tr>
+                <tr>
+                    <td>
+                        <a id="scl" href="single_car.html">26543</a>
+                    </td>
+                    <td>Mercedes Benz</td>
+                    <td>Truck</td>
+                    <td id="TD">Mercedes Benz</td>
+                    <td>New</td>
+                    <td>009</td>
+                    <td id="sold">Available</td>
+                    <td>
+                        <button>
+                            <a href="edit.html" id="lgbtn">Edit</a>
+                        </button>
+                    </td>
+                    <td>
+                        <button onclick="sold()">
+                            <a id="lgbtn">Mark as sold</a>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a id="scl" href="single_car.html">263</a>
+                    </td>
+                    <td>Toyota</td>
+                    <td>Van</td>
+                    <td id="TD">Toyota</td>
+                    <td>Used</td>
+                    <td>25</td>
+                    <td id="sold1">Available</td>
+                    <td>
+                        <button>
+                            <a href="edit.html" id="lgbtn">Edit</a>
+                        </button>
+                    </td>
+                    <td>
+                        <button onclick="sold1()">
+                            <a id="lgbtn">Mark as sold</a>
+                        </button>
+                    </td>
+                </tr>
+                <br>
+                <br>
+            </table>
+            <br>
+            <caption>
+                <b>My Purchase Orders.</b>
+            </caption>
+            <table id="myTable" class="tb01">
+                <tr>
+                    <th>Car ID</th>
+                    <th>Model</th>
+                    <th>Body-Type</th>
+                    <th>Manufacturer </th>
+                    <th>State</th>
+                    <th>Price</th>
+                    <th>Edit</th>
+                </tr>
+                <tr>
+                    <td>
+                        <a id="scl" href="single_car.html">23</a>
+                    </td>
+                    <td>Hummer</td>
+                    <td> Van</td>
+                    <td id="TD">Toyota</td>
+                    <td>New</td>
+                    <td>21</td>
+                    <td>
+                        <button>
+                            <a href="edit_purchase.html" id="lgbtn">Edit</a>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a id="scl" href="single_car.html">53</a>
+                    </td>
+                    <td>Subaru</td>
+                    <td>Car</td>
+                    <td id="TD">Subaru</td>
+                    <td>New</td>
+                    <td>2</td>
+                    <td>
+                        <button>
+                            <a href="edit_purchase.html" id="lgbtn">Edit</a>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <hr>
+        <div class="footer">
+            <ul>
+                <li>
+                    <a href="contact.html">Contact Us</a>
+                </li>
+                <li>
+                    <a href="feedback.html">Feedback</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
