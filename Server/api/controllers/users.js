@@ -1,18 +1,11 @@
 const jwt = require('jsonwebtoken');
 const val = require('../middleware/UserValidation');
-const hash = require('../middleware/helper');
+const helpers = require('../middleware/helper');
 
 const userList = [];
 
 exports.user_signup = (req, res) => {
-	const { error } = val.signupValidator(req.body);
-
-	if (error) {
-		return res.status(400).json({
-            status: 400,
-			message: error.details[0].message
-		});
-	}
+	val.signupValidator(req.body, res);
 	const user = userList.find(u => u.email === (req.body.email));
 	if (user) {
 		return res.status(409).json({
@@ -27,7 +20,7 @@ exports.user_signup = (req, res) => {
 			lastName: req.body.lastName,
 			homeAddress: req.body.homeAddress,
 			email: req.body.email,
-			password: hash.hashPassword(req.body.password),
+			password: helpers.hashPassword(req.body.password),
 			role: role
 		};
 		userList.push(user);
@@ -40,3 +33,34 @@ exports.user_signup = (req, res) => {
 	}
 
 };
+
+exports.user_signin = (req, res) => {
+	val.loginValidator(req.body, res);
+	const user = userList.find(u => u.email === (req.body.email),);
+
+	if (!user) {
+		return res.status(400).json({
+			message: 'User with that email does not exist'
+		});
+	}
+	else {
+		const valid_password = helpers.comparePassword(req.body.password, user['password']);
+		if (valid_password) {
+			const token = jwt.sign({ email: user['email'] }, 'henrysecret', { expiresIn: '1h' });
+			res.status(200).json({
+				message: 'Logged in succesfully',
+				token: token,
+				user_id: user['User_id'],
+				firstName: user['firstName'],
+				lastName: user['lastName']
+			});
+		}
+		else {
+			res.status(401).json({
+				message: 'Invalid password'
+			});
+		}
+
+	}
+};
+
