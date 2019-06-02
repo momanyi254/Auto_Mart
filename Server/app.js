@@ -8,6 +8,7 @@ const app = express();
 
 const usersRouter = require('./api/router/users');
 const carsRouter = require('./api/router/cars');
+const ordersRouter = require('./api/router/orders');
 
 
 app.use(bodyParse.json());
@@ -29,6 +30,7 @@ const api_version = '/api/v1';
 
 app.use(api_version + '/users', usersRouter);
 app.use(api_version + '/cars', carsRouter);
+app.use(api_version+'/orders', ordersRouter);
 
 //error handling
 

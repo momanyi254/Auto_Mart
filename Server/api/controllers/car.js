@@ -2,6 +2,13 @@
 const val = require('../middleware/UserValidation');
 let carsList = [];
 
+
+exports.all_cars = () => {
+	return carsList;
+};
+
+
+
 exports.create_car_sale_ad = (req, res) => {
 	val.carValidator(req.body, res);
 	const car = {
@@ -76,7 +83,7 @@ exports.get_all_cars = (req, res) => {
 
 		if (status && state && max_price && min_price) {
 			for (let caar of carsList) {
-				if (caar.status === status && min_price <= caar.price && caar.price <= max_price && caar.state ===state) {
+				if (caar.status === status && min_price <= caar.price && caar.price <= max_price && caar.state === state) {
 					filtered_cars.push(caar);
 				}
 			}
@@ -232,13 +239,20 @@ exports.delete_car = (req, res, ) => {
 		});
 	}
 	else {
-		const index = carsList.indexOf(car);
-		carsList.splice(index, 1);
+		const user_role = req.decoded['role'];
+		if (user_role != 'admin') {
+			return res.status(401).json({
+				message: 'sorry, you dont have rights to delete.'
+			});
+		} else {
+			const index = carsList.indexOf(car);
+			carsList.splice(index, 1);
 
-		res.status(200).json({
-			Message: 'This car AD was Deleted succesfully',
-			Deleted: car
-		});
+			res.status(200).json({
+				Message: 'This car AD was Deleted succesfully',
+				Deleted: car
+			});
+		}
 	}
 
 
