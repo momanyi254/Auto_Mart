@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "Project",
   "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+  "scripts":  {
+    "test": "mocha",
+    "test-watch": "nodemon --exec\"npm test\"",
+    "start": "nodemon server.js"
   },
   "author": "Henry Momanyi",
   "license": "ISC",

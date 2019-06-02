@@ -14,4 +14,4 @@ exports.validation_error = (user, schema, res) => {
 			message: error.details[0].message
 		});
 	}
-}
+};

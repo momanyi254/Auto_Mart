@@ -24,7 +24,7 @@ exports.user_signup = (req, res) => {
 			role: role
 		};
 		userList.push(user);
-		let token = jwt.sign({ email: user['email'] }, 'henrysecret', { expiresIn: '24h' });
+		let token = jwt.sign({ email: user['email'], role: user['role'] },  'henrysecret', { expiresIn: '24h' });
 		res.status(201).json({
 			Message: 'user created succesfully',
 			Data: user,
@@ -46,7 +46,7 @@ exports.user_signin = (req, res) => {
 	else {
 		const valid_password = helpers.comparePassword(req.body.password, user['password']);
 		if (valid_password) {
-			const token = jwt.sign({ email: user['email'] }, 'henrysecret', { expiresIn: '1h' });
+			const token = jwt.sign({ email: user['email'], role: user['role']}, 'henrysecret', { expiresIn: '1h' });
 			res.status(200).json({
 				message: 'Logged in succesfully',
 				token: token,
