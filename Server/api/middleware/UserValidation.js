@@ -36,3 +36,14 @@ exports.carValidator = (car,res) => {
 	};
 	helpers.validation_error(car, schema, res);
 };
+
+exports.orderValidator = (order, res) => {
+
+	const schema = {
+		car_id:  Joi.number().positive().required(),
+		price_offered: Joi.number().positive().required(),
+
+
+	};
+	helpers.validation_error(order, schema, res);
+};
