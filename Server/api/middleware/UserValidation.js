@@ -47,3 +47,13 @@ exports.orderValidator = (order, res) => {
 	};
 	helpers.validation_error(order, schema, res);
 };
+
+
+exports.flagValidator = (flag,res) => {
+	const schema = {
+		car_id:  Joi.number().positive().required(),
+		reason: Joi.string().required(),
+		description: Joi.string().required(),
+	};
+	helpers.validation_error(flag, schema, res);
+};

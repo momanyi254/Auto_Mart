@@ -1,20 +1,20 @@
 
 const express = require('express');
 const router = express.Router();
+const checkAuth = require('../middleware/userAuth');
+const CarController = require('../controllers/car');
+
 const multer = require('multer');
 
-const storage = multer.diskStorage({
-	destinantion: function (req, file, cb) {
-		cb(null, './uploads/');
+const store = multer.diskStorage({
+	destination: function (req, file, cb) {
+		cb(null, './uploads');
 	},
 	filename: function (req, file, cb) {
 		cb(null, new Date().toISOString() + file.originalname);
 	}
 });
-const upload = multer({ storage: storage });
-const checkAuth = require('../middleware/userAuth');
-
-const CarController = require('../controllers/car');
+const upload = multer({ storage: store });
 
 
 router.post('/', checkAuth, upload.single('carImage'), CarController.create_car_sale_ad);
