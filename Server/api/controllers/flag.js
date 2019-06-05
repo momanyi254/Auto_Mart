@@ -4,8 +4,13 @@ const cars = require('./car');
 const flagList = [];
 
 exports.flag_car = (req, res) => {
+	const { error } = val.flagValidator(req.body);
 
-	val.flagValidator(req.body, res);
+	if (error) {
+		return res.status(400).json({
+			message: error.details[0].message
+		});
+	}
 	const car = cars.all_cars().find(c => c.Car_id === parseInt(req.body.car_id));
 	if (!car) {
 		res.status(404).json({

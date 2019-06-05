@@ -7,17 +7,15 @@ const CarController = require('../controllers/car');
 const multer = require('multer');
 
 const store = multer.diskStorage({
-	destination: function (req, file, cb) {
-		cb(null, './uploads');
-	},
 	filename: function (req, file, cb) {
-		cb(null, new Date().toISOString() + file.originalname);
+		cb(null,file.originalname);
 	}
 });
 const upload = multer({ storage: store });
 
 
 router.post('/', checkAuth, upload.single('carImage'), CarController.create_car_sale_ad);
+
 //views all posted cars as a user
 
 

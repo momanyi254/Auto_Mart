@@ -1,8 +1,5 @@
 const Joi = require('joi');
-const helpers = require('../middleware/helper');
-
-
-exports.signupValidator = (user, res) => {
+exports.signupValidator = (user) => {
 	const schema = Joi.object().keys({
 		firstName: Joi.string().required(),
 		lastName: Joi.string().required(),
@@ -11,33 +8,31 @@ exports.signupValidator = (user, res) => {
 		password: Joi.string().required(),
 		role:  Joi.string()
 	});
-
-	helpers.validation_error(user, schema, res);
-
+	return Joi.validate(user, schema);
 };
 
-exports.loginValidator = (user, res) => {
+exports.loginValidator = (user) => {
 
 	const schema = Joi.object().keys({
 		email: Joi.string().required().email({ minDomainAtoms: 2 }),
 		password: Joi.string().required(),
 	});
 
-	helpers.validation_error(user, schema, res);
+	return Joi.validate(user, schema);
 };
 
 
-exports.carValidator = (car,res) => {
+exports.carValidator = (car) => {
 	const schema = {
 		manufacturer: Joi.string().required(),
 		model: Joi.string().required(),
 		price: Joi.number().positive().precision(2).required(),
 		state: Joi.string().required(),
 	};
-	helpers.validation_error(car, schema, res);
+	return Joi.validate(car, schema);
 };
 
-exports.orderValidator = (order, res) => {
+exports.orderValidator = (order) => {
 
 	const schema = {
 		car_id:  Joi.number().positive().required(),
@@ -45,15 +40,14 @@ exports.orderValidator = (order, res) => {
 
 
 	};
-	helpers.validation_error(order, schema, res);
+	return Joi.validate(order, schema);
 };
 
-
-exports.flagValidator = (flag,res) => {
+exports.flagValidator = (flag) => {
 	const schema = {
 		car_id:  Joi.number().positive().required(),
 		reason: Joi.string().required(),
 		description: Joi.string().required(),
 	};
-	helpers.validation_error(flag, schema, res);
+	return Joi.validate(flag, schema);
 };
