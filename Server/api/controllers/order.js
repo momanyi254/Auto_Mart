@@ -20,7 +20,13 @@ exports.get_all_orders = (req, res) => {
 };
 
 exports.create_purchase_order = (req, res) => {
-	val.orderValidator(req.body, res);
+	const { error } = val.orderValidator(req.body);
+
+	if (error) {
+		return res.status(400).json({
+			message: error.details[0].message
+		});
+	}
 	const car = cars.all_cars().find(c => c.Car_id === parseInt(req.body.car_id));
 
 	if (!car) {
@@ -75,30 +81,29 @@ exports.get_single_order = (req, res) => {
 };
 
 exports.update_purchase_order_price = (req, res) => {
-
 	const order = ordersList.find(c => c.Order_id === parseInt(req.params.Order_id));
-
 	if (!order) {
 		res.status(404).json({
 			Message: 'Order with that ID does not exist',
 		});
+	} else {
+
+		if (order['buyer'] != req.decoded['email']) {
+			res.status(401).json({
+				Message: 'Not your order, sorry, cant update price'
+			});
+		}
+		else {
+			order['old_price_offered'] = order['price_offered'];
+			order['price_offered'] = req.body.new_price_offered;
+
+
+			res.status(200).json({
+				Message: 'Your PO price was succesfully updated',
+				Purchase_Order: order
+			});
+		}
 	}
-
-	else {
-		order['Old_Price_Offered'] = order['Price_Offered'];
-		order['Price_Offered'] = req.body.New_Price_Offered;
-
-
-		res.status(200).json({
-			Message: 'Your PO price was succesfully updated',
-			Purchase_Order: order
-		});
-
-	}
-
-
-
-
 };
 exports.delete_purchase_orders = (req, res) => {
 

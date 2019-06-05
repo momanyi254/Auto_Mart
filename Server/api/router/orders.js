@@ -12,7 +12,7 @@ router.post('/', checkAuth, OrderController.create_purchase_order);
 // Get single order
 router.get('/:Order_id', checkAuth, OrderController.get_single_order);
 //Update the price of PO
-router.patch('/:Order_id/Price', OrderController.update_purchase_order_price);
+router.patch('/:Order_id/Price',checkAuth, OrderController.update_purchase_order_price);
 // Delete an order
 router.delete('/:Order_id', checkAuth, OrderController.delete_purchase_orders);
 
