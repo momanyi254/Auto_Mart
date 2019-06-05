@@ -2,12 +2,6 @@
 const val = require('../middleware/UserValidation');
 
 const cloudinary = require('cloudinary').v2;
-const fileUpload = require('express-fileupload');
-
-// app.use(fileUpload({
-//     useTempFiles : true,
-//     tempFileDir : '/tmp/'
-// }));
 
 let carsList = [
 	{

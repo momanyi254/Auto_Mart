@@ -46,8 +46,7 @@ describe('Handling tests on Car CRUD endpoints', () => {
 		// 			manufacturer: 'Toyota',
 		// 			model: 'vits',
 		// 			price: 5200,
-		// 			state: 'PO BOX 123 KENYA',
-		// 			carImage: 'test.jpg'
+		// 			state: 'PO BOX 123 KENYA'
 		// 		})
 		// 		.then((res) => {
 		// 			console.log(res.body)

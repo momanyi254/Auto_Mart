@@ -31,7 +31,7 @@ exports.create_purchase_order = (req, res) => {
 
 	if (!car) {
 		res.status(404).json({
-			Message: 'Car with that ID does not exist',
+			message: 'Car with that ID does not exist',
 		});
 	}
 
@@ -53,7 +53,7 @@ exports.create_purchase_order = (req, res) => {
 		};
 		ordersList.push(order);
 		res.status(201).json({
-			Message: 'Purchase Order created succesfully',
+			message: 'Purchase Order created succesfully',
 			Created_Order: order
 		});
 	}
@@ -64,7 +64,7 @@ exports.get_single_order = (req, res) => {
 
 	if (!order) {
 		res.status(404).json({
-			Message: 'Order with that ID does not exist',
+			message: 'Order with that ID does not exist',
 		});
 	}
 	else {
@@ -72,7 +72,7 @@ exports.get_single_order = (req, res) => {
 		res.send(
 
 			res.status(200).json({
-				Message: 'This is your Purchase Order:',
+				message: 'This is your Purchase Order:',
 				Purchase_Order: order
 			})
 		);
@@ -84,13 +84,13 @@ exports.update_purchase_order_price = (req, res) => {
 	const order = ordersList.find(c => c.Order_id === parseInt(req.params.Order_id));
 	if (!order) {
 		res.status(404).json({
-			Message: 'Order with that ID does not exist',
+			message: 'Order with that ID does not exist',
 		});
 	} else {
 
 		if (order['buyer'] != req.decoded['email']) {
 			res.status(401).json({
-				Message: 'Not your order, sorry, cant update price'
+				message: 'Not your order, sorry, cant update price'
 			});
 		}
 		else {
@@ -99,7 +99,7 @@ exports.update_purchase_order_price = (req, res) => {
 
 
 			res.status(200).json({
-				Message: 'Your PO price was succesfully updated',
+				message: 'Your PO price was succesfully updated',
 				Purchase_Order: order
 			});
 		}
@@ -111,7 +111,7 @@ exports.delete_purchase_orders = (req, res) => {
 
 	if (!order) {
 		res.status(404).json({
-			Message: 'Order with that ID does not exist',
+			message: 'Order with that ID does not exist',
 		});
 	}
 
@@ -126,7 +126,7 @@ exports.delete_purchase_orders = (req, res) => {
 			ordersList.splice(index, 1);
 
 			res.status(200).json({
-				Message: 'This order was Deleted from Our System',
+				message: 'This order was Deleted from Our System',
 				Deleted: order
 			});
 		}
