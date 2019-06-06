@@ -5,7 +5,7 @@ const mocha = require('mocha');
 const describe = mocha.describe;
 chai.use(require('chai-http'));
 const it = mocha.it;
-const token = require('./test.User');
+const token = require('./users.test');
 
 describe('Handling tests on Car CRUD endpoints', () => {
 
