@@ -22,7 +22,6 @@ describe('Handling tests on flagging cars CRUD endpoints', () => {
 					description: 'the price is high'
 				})
 				.then(res => {
-					console.log(res.body)
 					expect(res.status).to.be.equal(201);
 					expect(res.body).to.be.an('object');
 					done();
