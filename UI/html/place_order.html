@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Flag advert page</title>
-    <link rel="stylesheet" href="main.css">
+    <title>Purchase order page</title>
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 
 <body>
@@ -14,34 +14,34 @@
         <div class="header">
             <span id="logo"> Auto Mart</span>
             <ul>
+
                 <li>
                     <a href="index.html">Log Out</a>
                 </li>
                 <li>
                     <a href="user_page.html">My Dashboard</a>
                 </li>
+            </ul>
+
         </div>
         <hr>
         <div class="user">
+        
             <h6>Logged In: Henry Momanyi</h6>
-            <h2>Flag Fraudulent Advert.</h2>
-            <form>
-                    Car ID: 00258
-                <br/>
-                <p>Reason for flaging</p>
-                <select id="flag" name="flag" required>
-                    <option value="reason">Upreciated price</option>
-                    <option value="reason">Werd demand</option>
-                    <option value="reason">Stolen</option>
-                    <option value="reason">To Old to be sold</option>
-                    <option value="reason">Others</option>
-                </select>
+            <h2>Purchase Vehicle </h2>
+            Car_ID : 00199
 
-                <p> Describe:</p>
-                <textarea name="message" rows="10" cols="60">
-                </textarea>
+            <img src="images/ff.jpg" width="150" height="100">
+            <br>
+            <form>
+
+                <label>My price:</label>
+                <input type="float" name="id" placeholder="Price in dollars" required>
                 <br>
-                <button id="submit" onclick="flag()">Submit</button>
+                <br>
+
+
+                <button id="submit" onclick="buy()">Order</button>
             </form>
         </div>
         <hr>

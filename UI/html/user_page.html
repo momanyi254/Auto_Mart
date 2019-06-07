@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Admin1</title>
-    <link rel="stylesheet" href="main.css">
-    <script src="main.js"></script>
+    <title>Userpage 1</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/main.js"></script>
 </head>
 
 <body>
@@ -24,10 +24,10 @@
                     <a href="">My Dashboad</a>
                     <ul class="dropdown-content">
                         <li>
-                            <a href="sold.html">All Sold Cars</a>
+                            <a href="user_dashboard.html">My Activities</a>
                         </li>
                         <li>
-                            <a href="Reset.html">Change Password</a>
+                            <a href="reset_password.html">Change Password</a>
                         </li>
                     </ul>
                 </li>
@@ -36,8 +36,13 @@
         </div>
         <hr>
         <div class="user">
-            <caption><b>Admin Dashboad</b></caption>
-            <h6>Logged In: Admin</h6>
+            <caption><b>My Dashboad</b></caption>
+            <h6>Logged In: Henry Momanyi</h6>
+            <ul>
+                <li style="float:left">
+                    <a href="post_advert.html" style="background-color: black;">Create Sale Advert</a>
+                </li>
+            </ul>
             <p>
                 Search
                 <input id="srch" type="text" placeholder="Search by..."></input> By:
@@ -55,7 +60,6 @@
                 <caption>
                     <b>Available Vehicles</b>
                 </caption>
-                <br>
                 <tr>
                     <th>Car ID </th>
                     <th>Model</th>
@@ -67,12 +71,11 @@
                     </th>
                     <th>Status</th>
                     <th>Flag</th>
-                   
-                   <th>Delete</th>
+                    <th>Purchase Order</th>
                 </tr>
                 <tr>
                         <td >
-                                <a id="scl" href="single_car.html">12365</a>
+                                <a id="scl" href="single_car.html">93</a>
                                 </td>
                     <td>Mercedes Benz</td>
                     <td>Truck</td>
@@ -82,18 +85,18 @@
                     <td>Available</td>
                     <td>
                         <button id="submit" onclick="open()">
-                            <a href="flag_page.html" id="lgbtn">Flag</a>
+                            <a href="flag_advert.html" id="lgbtn">Flag</a>
                         </button>
                     </td>
                     <td>
-                            <button>
-                                <a href="" id="lgbtn">Delete</a>
-                            </button>
-                        </td>
+                        <button id="submit" onclick="open()">
+                            <a href="place_order.html" id="lgbtn">Buy</a>
+                        </button>
+                    </td>
                 </tr>
                 <tr>
                         <td >
-                                <a id="scl" href="single_car.html">14578</a>
+                                <a id="scl" href="single_car.html">29</a>
                                 </td>
                     <td>Toyota</td>
                     <td>Van</td>
@@ -103,18 +106,18 @@
                     <td>Available</td>
                     <td>
                         <button id="submit" onclick="open()">
-                            <a href="flag_page.html" id="lgbtn">Flag</a>
+                            <a href="flag_advert.html" id="lgbtn">Flag</a>
                         </button>
                     </td>
                     <td>
-                            <button>
-                                <a href="" id="lgbtn">Delete</a>
-                            </button>
-                        </td>
+                        <button id="submit" onclick="open()">
+                            <a href="place_order.html" id="lgbtn">Buy</a>
+                        </button>
+                    </td>
                 </tr>
                 <tr>
                         <td >
-                                <a id="scl" href="single_car.html">136574</a>
+                                <a id="scl" href="single_car.html">78</a>
                                 </td>
                     <td>Hummer</td>
                     <td> Van</td>
@@ -124,18 +127,18 @@
                     <td>Available</td>
                     <td>
                         <button id="submit" onclick="open()">
-                            <a href="flag_page.html" id="lgbtn">Flag</a>
+                            <a href="flag_advert.html" id="lgbtn">Flag</a>
                         </button>
                     </td>
-                      <td>
-                            <button>
-                                <a href="" id="lgbtn">Delete</a>
-                            </button>
-                        </td>
+                    <td>
+                        <button id="submit" onclick="open()">
+                            <a href="place_order.html" id="lgbtn">Buy</a>
+                        </button>
+                    </td>
                 </tr>
                 <tr>
                         <td >
-                                <a id="scl" href="single_car.html">3214563</a>
+                                <a id="scl" href="single_car.html">52</a>
                                 </td>
                     <td>Subaru</td>
                     <td>Car</td>
@@ -145,19 +148,17 @@
                     <td>Available</td>
                     <td>
                         <button id="submit" onclick="open()">
-                            <a href="flag_page.html" id="lgbtn">Flag</a>
+                            <a href="flag_advert.html" id="lgbtn">Flag</a>
                         </button>
                     </td>
                     <td>
-                            <button>
-                                <a href="" id="lgbtn">Delete</a>
-                            </button>
-                        </td>
+                        <button id="submit" onclick="open()">
+                            <a href="place_order.html" id="lgbtn">Buy</a>
+                        </button>
+                    </td>
                 </tr>
-            </table> 
-            <br>
-            <br>
-            </div>
+            </table>
+        </div>
         <hr>
         <div class="footer">
             <ul>
