@@ -19,7 +19,7 @@ display:grid;
 }
 
 body{
-background-image:url('images/jeep.jpg') ;
+background-image:url('../images/jeep.jpg') ;
 background-repeat: no-repeat;
 background-size: cover; 
 }
@@ -31,7 +31,7 @@ height:480px;
 font-family: roboto;
 }
 .header{
-background-image: url('images/001.jpg');
+background-image: url('../images/001.jpg');
 background-repeat: no-repeat;
 background-size: 150px 80px;
 height: 15%;
