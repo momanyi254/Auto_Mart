@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha ./Server/tests/",
     "test-watch": "nodemon --exec\"npm test\"",
-    "start": "nodemon server.js"
+    "start": "nodemon Server/server.js"
   },
   "author": "Henry Momanyi",
   "license": "ISC",
