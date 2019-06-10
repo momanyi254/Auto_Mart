@@ -5,44 +5,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Admin landing page</title>
+    <title>homepage</title>
     <link rel="stylesheet" href="../css/main.css">
     <script src="../js/main.js"></script>
 </head>
 
 <body>
+    
     <div class="container">
         <div class="header">
-            <span id="logo">
-                <a href="index.html">Auto Mart</a>
-            </span>
+           <span id="logo"><a href="index.html">Auto Mart</a></span>
             <ul>
                 <li>
-                    <a href="index.html">Log Out</a>
+                    <a href="login.html">Sign In</a>
+                </li>
+                <li>
+                    <a href="signup.html">Sign Up</a>
+                </li>
+                <li class="dropdown">
+                    <a href="">About Us</a>
+                    <ul class="dropdown-content" >
+                        <li>
+                            <a href="" onmouseover="changepic()">What We Do</a>
+                        </li>
+                        <li>
+                            <a href="" onmouseover="vision()">Vision statement</a>
+                        </li>
+                        <li>
+                            <a href="" onmouseover="values()">our core values</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
-            <li>
-                <a href="reset_password.html">Change Password</a>
-            </li>
-           
+
         </div>
         <hr>
         <div class="user">
-            <caption>
-                <b>Admin Dashboad</b>
-            </caption>
-            <h6>Logged In: Admin</h6>
-            <ul>
-                <li style="float:left">
-                    <a href="admin_page.html" style="background-color: black;">Available Cars</a>
-                </li>
-                <li style="float:left">
-                    <a href="sold_cars.html" style="background-color: black;"> Sold Cars</a>
-                </li>
-                <li style="float:left">
-                    <a href="flagged_cars.html" style="background-color: black;">Flagged Cars</a>
-                </li>
-            </ul>
             <p>
                 Search
                 <input id="srch" type="text" placeholder="Search by..."></input> By:
@@ -71,9 +69,7 @@
                         <button onclick="sortPrice()">&#9660</button>
                     </th>
                     <th>Status</th>
-                    <th>Flag</th>
-
-                    <th>Delete</th>
+                   
                 </tr>
                 <tr>
                     <td>
@@ -85,16 +81,7 @@
                     <td>New</td>
                     <td>009</td>
                     <td>Available</td>
-                    <td>
-                        <button id="submit" onclick="open()">
-                            <a href="flag_advert.html" id="lgbtn">Flag</a>
-                        </button>
-                    </td>
-                    <td>
-                        <button>
-                            <a href="" id="lgbtn">Delete</a>
-                        </button>
-                    </td>
+                   
                 </tr>
                 <tr>
                     <td>
@@ -106,16 +93,7 @@
                     <td>Used</td>
                     <td>25</td>
                     <td>Available</td>
-                    <td>
-                        <button id="submit" onclick="open()">
-                            <a href="flag_advert.html" id="lgbtn">Flag</a>
-                        </button>
-                    </td>
-                    <td>
-                        <button>
-                            <a href="" id="lgbtn">Delete</a>
-                        </button>
-                    </td>
+                    
                 </tr>
                 <tr>
                     <td>
@@ -127,16 +105,7 @@
                     <td>New</td>
                     <td>21</td>
                     <td>Available</td>
-                    <td>
-                        <button id="submit" onclick="open()">
-                            <a href="flag_advert.html" id="lgbtn">Flag</a>
-                        </button>
-                    </td>
-                    <td>
-                        <button>
-                            <a href="" id="lgbtn">Delete</a>
-                        </button>
-                    </td>
+                   
                 </tr>
                 <tr>
                     <td>
@@ -148,16 +117,7 @@
                     <td>New</td>
                     <td>2</td>
                     <td>Available</td>
-                    <td>
-                        <button id="submit" onclick="open()">
-                            <a href="flag_advert.html" id="lgbtn">Flag</a>
-                        </button>
-                    </td>
-                    <td>
-                        <button>
-                            <a href="" id="lgbtn">Delete</a>
-                        </button>
-                    </td>
+                  
                 </tr>
             </table>
             <br>
