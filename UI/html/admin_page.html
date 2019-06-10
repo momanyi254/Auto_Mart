@@ -13,31 +13,27 @@
 <body>
     <div class="container">
         <div class="header">
-            <span id="logo"> Auto Mart</span>
+            <span id="logo"><a href="index.html">Auto Mart</a></span>
             <ul>
                 <li>
 
                     <a href="index.html">Log Out</a>
                 </li>
-
-                <li class="dropdown">
-                    <a href="">My Dashboad</a>
-                    <ul class="dropdown-content">
-                        <li>
-                            <a href="sold_cars.html">All Sold Cars</a>
-                        </li>
-                        <li>
-                            <a href="reset_password.html">Change Password</a>
-                        </li>
-                    </ul>
-                </li>
             </ul>
+            <li>
+                    <a href="reset_password.html">Change Password</a>
+                </li>
 
         </div>
         <hr>
         <div class="user">
             <caption><b>Admin Dashboad</b></caption>
             <h6>Logged In: Admin</h6>
+            <ul>
+                <li style="float:left">
+                    <a href="flag_advert.html" style="background-color: black;">View all flagged Cars</a>
+                </li>
+            </ul>
             <p>
                 Search
                 <input id="srch" type="text" placeholder="Search by..."></input> By:
@@ -155,7 +151,11 @@
                         </td>
                 </tr>
             </table> 
-            <br>
+            <div> 
+                        <button id="submit" onclick="open()">
+                                <a href="sold_cars.html" id ="lgbtn">Next</a>
+                            </button>
+                            </div>
             <br>
             </div>
         <hr>

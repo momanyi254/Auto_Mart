@@ -13,11 +13,21 @@
 <body>
     <div class="container">
         <div class="header">
-            <span id="logo"> Auto Mart</span>
+            <span id="logo">
+                <a href="index.html">Auto Mart</a>
+            </span>
             <ul>
                 <li>
 
                     <a href="index.html">Log Out</a>
+                </li>
+                <li class="dropdown">
+                    <a href="">Settings</a>
+                    <ul class="dropdown-content">
+                        <li>
+                            <a href="reset_password.html">Change Password</a>
+                        </li>
+                    </ul>
                 </li>
 
                 <li class="dropdown">
@@ -26,17 +36,18 @@
                         <li>
                             <a href="user_dashboard.html">My Activities</a>
                         </li>
-                        <li>
-                            <a href="reset_password.html">Change Password</a>
-                        </li>
+
                     </ul>
                 </li>
+
             </ul>
 
         </div>
         <hr>
         <div class="user">
-            <caption><b>My Dashboad</b></caption>
+            <caption>
+                <b>My Dashboad</b>
+            </caption>
             <h6>Logged In: Henry Momanyi</h6>
             <ul>
                 <li style="float:left">
@@ -74,9 +85,9 @@
                     <th>Purchase Order</th>
                 </tr>
                 <tr>
-                        <td >
-                                <a id="scl" href="single_car.html">93</a>
-                                </td>
+                    <td>
+                        <a id="scl" href="single_car.html">93</a>
+                    </td>
                     <td>Mercedes Benz</td>
                     <td>Truck</td>
                     <td id="TD">Mercedes Benz</td>
@@ -95,9 +106,9 @@
                     </td>
                 </tr>
                 <tr>
-                        <td >
-                                <a id="scl" href="single_car.html">29</a>
-                                </td>
+                    <td>
+                        <a id="scl" href="single_car.html">29</a>
+                    </td>
                     <td>Toyota</td>
                     <td>Van</td>
                     <td id="TD">Toyota</td>
@@ -116,9 +127,9 @@
                     </td>
                 </tr>
                 <tr>
-                        <td >
-                                <a id="scl" href="single_car.html">78</a>
-                                </td>
+                    <td>
+                        <a id="scl" href="single_car.html">78</a>
+                    </td>
                     <td>Hummer</td>
                     <td> Van</td>
                     <td id="TD">Toyota</td>
@@ -137,9 +148,9 @@
                     </td>
                 </tr>
                 <tr>
-                        <td >
-                                <a id="scl" href="single_car.html">52</a>
-                                </td>
+                    <td>
+                        <a id="scl" href="single_car.html">52</a>
+                    </td>
                     <td>Subaru</td>
                     <td>Car</td>
                     <td id="TD">Subaru</td>
@@ -158,6 +169,12 @@
                     </td>
                 </tr>
             </table>
+            <br>
+            <div>
+                <button id="submit" onclick="open()">
+                    <a href="" id="lgbtn">Next</a>
+                </button>
+            </div>
         </div>
         <hr>
         <div class="footer">
