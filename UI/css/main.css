@@ -6,13 +6,13 @@ display:inline-block;
 .dropdown-content {
 display: none;
 position: absolute;
-margin: 35px 600px 0px 0px;
+margin: 30px 500px 0px -40px;
 
 }
 .dropdown-content a {
 display: block;
 float: right;
-padding: 5px;
+padding: 1px;
 }
 .dropdown:hover .dropdown-content {
 display:grid;
@@ -31,13 +31,10 @@ height:480px;
 font-family: roboto;
 }
 .header{
-background-image: url('../images/001.jpg');
-background-repeat: no-repeat;
-background-size: 150px 80px;
 height: 15%;
 color: black;
 background-color:grey;
-padding-bottom: 5px;
+padding-top: 15px;
 }
 .footer {
 padding-top: 10px;
@@ -55,8 +52,17 @@ list-style: none;
 #logo {
 padding: 10px 10px 0px 10px;
 font-weight: bold;
-color: white;
+float:left;
+font-size: 20px
 }
+#logo a{
+    border: none;
+    background: none;
+    
+}
+#logo a:hover{
+    background: none
+    }
 
 #lgbtn{
 border: 0;
@@ -68,11 +74,11 @@ color: black
 a{
 text-decoration: none;
 float: right;
-padding: 5px;
-margin: 5px;
+padding: 3px;
+margin: 3px;
 color: white;
 border: 1px solid black;
-border-radius: 10px;
+border-radius: 7px;
 background-color:skyblue;
 }
 a:hover{
@@ -83,7 +89,8 @@ background-color:wheat;
 padding: 5px;
 text-align:justify;
 margin:10px 10px;
-}
+} 
+
 .intro{
 width: 80%;
 margin: auto;
@@ -162,3 +169,14 @@ background-color:transparent;
     border-radius: 10px;
     padding: 10px;
 }
+@media only screen and (max-width: 600px) {
+    
+} 
+
+
+
+@media screen and (max-width: 300px) {
+    .container {
+      color: black
+    }
+  }
