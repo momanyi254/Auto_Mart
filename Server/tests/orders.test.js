@@ -109,12 +109,12 @@ describe('Handling tests on Orders CRUD endpoints', () => {
 	describe('/GET a specific order', () => {
 		it('should return a single order if its available', (done) => {
 			chai.request(app)
-				.get('/api/v1/orders/2')
+				.get('/api/v1/orders/')
 				.set('Authorization', token.userToken)
 				.then((res) => {
 					expect(res.status).to.be.equal(200);
 					expect(res.body).to.be.an('object');
-					expect(res.body).to.have.property('message');
+					expect(res.body).to.have.property('Message');
 					done();
 				})
 				.catch(error => done(error));

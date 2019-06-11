@@ -11,6 +11,7 @@ exports.signupValidator = (user) => {
 	return Joi.validate(user, schema);
 };
 
+
 exports.loginValidator = (user) => {
 
 	const schema = Joi.object().keys({
