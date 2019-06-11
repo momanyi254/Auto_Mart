@@ -167,7 +167,7 @@ exports.get_all_cars = (req, res) => {
 
 exports.admin_get_all_cars = (req, res) => {
 	const user_role = req.decoded['isAdmin'];
-	if (user_role != 'yes') {
+	if (user_role != 'Yes') {
 		return res.status(401).json({
 			message: 'sorry, only admin can view this route'
 		});
@@ -289,7 +289,7 @@ exports.delete_car = (req, res, ) => {
 	}
 	else {
 		const user_role = req.decoded['isAdmin'];
-		if (user_role != 'yes') {
+		if (user_role != 'Yes') {
 			return res.status(401).json({
 				message: 'sorry, you dont have rights to delete.'
 			});

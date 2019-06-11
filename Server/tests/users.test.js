@@ -21,7 +21,7 @@ describe('User signup/POST/', () => {
 				email: 'momanyi@hotmail.com',
 				homeAddress: 'PO BOX 123 KENYA',
 				password: 'henry123',
-				isAdmin: 'user'
+				isAdmin: 'No'
 			})
 
 			.then(res => {
@@ -40,7 +40,7 @@ describe('User signup/POST/', () => {
 				email: 'momanyihenry@hotmail.com',
 				homeAddress: 'PO BOX 123 KENYA',
 				password: 'henry123',
-				isAdmin: 'admin'
+				isAdmin: 'Yes'
 			})
 
 			.then(res => {
