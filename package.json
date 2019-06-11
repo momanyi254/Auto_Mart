@@ -4,7 +4,7 @@
   "description": "Project",
   "main": "server.js",
   "scripts": {
-    "test": "mocha ./Server/tests/",
+    "test": "nyc mocha ./Server/tests/",
     "test-watch": "nodemon --exec\"npm test\"",
     "start": "nodemon Server/server.js"
   },
@@ -25,6 +25,7 @@
     "morgan": "^1.9.1",
     "multer": "^1.4.1",
     "nodemon": "^1.19.1",
+    "nyc": "^14.1.1",
     "sinon": "^7.3.2"
   },
   "devDependencies": {
