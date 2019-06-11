@@ -238,7 +238,7 @@ exports.update_cars_status = (req, res, ) => {
 
 	if (!car) {
 		res.status(404).json({
-			Message: 'Car with that ID does not exist',
+			message: 'Car with that ID does not exist',
 		});
 	}
 	else {

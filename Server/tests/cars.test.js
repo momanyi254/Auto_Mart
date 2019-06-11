@@ -6,7 +6,6 @@ const describe = mocha.describe;
 chai.use(require('chai-http'));
 const it = mocha.it;
 const token = require('./users.test');
-
 describe('Handling tests on Car CRUD endpoints', () => {
 
 	describe('/POST create a car sale advert', () => {
@@ -84,11 +83,82 @@ describe('Handling tests on Car CRUD endpoints', () => {
 				})
 				.catch(error => done(error));
 		});
-		it('should enable useres to view only available cars ', (done) => {
+		it('should not enable users who are not admin to get sold cars ', (done) => {
 			chai.request(app)
 				.get('/api/v1/cars?status=sold')
 				.then((res) => {
 					expect(res.status).to.be.equal(400);
+					expect(res.body).to.be.an('object');
+					done();
+				})
+				.catch(error => done(error));
+		});
+		it('should enable users to filter and get only available cars ', (done) => {
+			chai.request(app)
+				.get('/api/v1/cars?status=available')
+				.then((res) => {
+					expect(res.status).to.be.equal(200);
+					expect(res.body).to.be.an('object');
+					done();
+				})
+				.catch(error => done(error));
+		});
+		it('should enable users to filter and get cars by state ', (done) => {
+			chai.request(app)
+				.get('/api/v1/cars?state=new')
+				.then((res) => {
+					expect(res.status).to.be.equal(200);
+					expect(res.body).to.be.an('object');
+					done();
+				})
+				.catch(error => done(error));
+		});
+		it('should enable users to filter cars by manufacturer ', (done) => {
+			chai.request(app)
+				.get('/api/v1/cars?manufacturer=toto')
+				.then((res) => {
+					expect(res.status).to.be.equal(200);
+					expect(res.body).to.be.an('object');
+					done();
+				})
+				.catch(error => done(error));
+		});
+		it('should enable users to filter and get cars by state and status  ', (done) => {
+			chai.request(app)
+				.get('/api/v1/cars?status=available&state=new')
+				.then((res) => {
+					expect(res.status).to.be.equal(200);
+					expect(res.body).to.be.an('object');
+					done();
+				})
+				.catch(error => done(error));
+		});
+
+		it('should enable users to filter and get cars by state and status and min & max price  ', (done) => {
+			chai.request(app)
+				.get('/api/v1/cars?status=available&state=new&min_price=5000&max_price=10000')
+				.then((res) => {
+					expect(res.status).to.be.equal(200);
+					expect(res.body).to.be.an('object');
+					done();
+				})
+				.catch(error => done(error));
+		});
+		it('should enable users to filter and get cars by state and status and min & max price and manufacturer  ', (done) => {
+			chai.request(app)
+				.get('/api/v1/cars?status=available&state=new&manufacturer=toto&min_price=5000&max_price=10000')
+				.then((res) => {
+					expect(res.status).to.be.equal(200);
+					expect(res.body).to.be.an('object');
+					done();
+				})
+				.catch(error => done(error));
+		});
+		it('should return a message with 404 status code if there is no car in the saved list', (done) => {
+			chai.request(app)
+				.get('/api/v1/cars/70')
+				.then((res) => {
+					expect(res.status).to.be.equal(404);
 					expect(res.body).to.be.an('object');
 					done();
 				})
@@ -105,8 +175,6 @@ describe('Handling tests on Car CRUD endpoints', () => {
 					expect(res.status).to.be.equal(200);
 					expect(res.body).to.be.an('object');
 					expect(res.body).to.have.property('Message');
-					// expect(res.body).to.have.property('count');
-					// expect(res.body).to.have.property('data');
 					done();
 				})
 				.catch(error => done(error));
@@ -172,6 +240,17 @@ describe('Handling tests on Car CRUD endpoints', () => {
 				})
 				.catch(error => done(error));
 		});
+		it('should return 404 status code with a message if car does not exist', (done) => {
+			chai.request(app)
+				.patch('/api/v1/cars/55/status')
+				.set('Authorization',token.userToken)
+				.then((res) => {
+					expect(res.status).to.be.equal(404);
+					expect(res.body).to.have.property('message');
+					done();
+				})
+				.catch(error => done(error));
+		});
 	});
 
 	describe('/PATCH Owner to update price of advert', () => {
@@ -209,6 +288,17 @@ describe('Handling tests on Car CRUD endpoints', () => {
 					expect(res.status).to.be.equal(200);
 					expect(res.body).to.be.an('object');
 					expect(res.body).to.have.property('Message');
+					done();
+				})
+				.catch(error => done(error));
+		});
+		it('should return 404 status code with a message if car does not exist', (done) => {
+			chai.request(app)
+				.patch('/api/v1/cars/55')
+				.set('Authorization',token.adminToken)
+				.then((res) => {
+					expect(res.status).to.be.equal(404);
+					expect(res.body).to.have.property('message');
 					done();
 				})
 				.catch(error => done(error));
