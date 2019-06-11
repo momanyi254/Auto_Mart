@@ -116,8 +116,8 @@ exports.delete_purchase_orders = (req, res) => {
 	}
 
 	else {
-		const user_role = req.decoded['role'];
-		if (user_role != 'admin') {
+		const user_role = req.decoded['isAdmin'];
+		if (user_role != 'Yes') {
 			return res.status(401).json({
 				message: 'sorry, you dont have rights to delete.'
 			});
