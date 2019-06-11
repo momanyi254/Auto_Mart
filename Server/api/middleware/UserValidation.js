@@ -6,7 +6,7 @@ exports.signupValidator = (user) => {
 		email: Joi.string().required().email({ minDomainAtoms: 2 }),
 		homeAddress: Joi.string().required(),
 		password: Joi.string().required(),
-		role:  Joi.string()
+		isAdmin:  Joi.string()
 	});
 	return Joi.validate(user, schema);
 };

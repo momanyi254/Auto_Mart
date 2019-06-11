@@ -19,7 +19,7 @@ exports.user_signup = (req, res) => {
 		});
 	}
 	else {
-		let role = req.body.role === 'admin' ? 'admin' : 'user';
+		let isAdmin = req.body.isAdmin === 'Yes' ? 'Yes' : 'No';
 		const user = {
 			User_id: userList.length + 1,
 			firstName: req.body.firstName,
@@ -27,13 +27,18 @@ exports.user_signup = (req, res) => {
 			homeAddress: req.body.homeAddress,
 			email: req.body.email,
 			password: helpers.hashPassword(req.body.password),
-			role: role
+			isAdmin: isAdmin
 		};
 		userList.push(user);
-		let token = jwt.sign({ email: user['email'], role: user['role'] }, 'henrysecret', { expiresIn: '24h' });
+		const newUser = {
+			userID: user.user_id,
+			firstName: user.firstName,
+			email:user.email,
+			isAdmin: user.isAdmin};
+		let token = jwt.sign({ email: user['email'], isAdmin: user['isAdmin'] }, 'henrysecret', { expiresIn: '24h' });
 		res.status(201).json({
 			Message: 'user created succesfully',
-			Data: user,
+			Data:newUser,
 			Token: token
 		});
 	}
@@ -58,7 +63,7 @@ exports.user_signin = (req, res) => {
 	else {
 		const valid_password = helpers.comparePassword(user['password'], req.body.password);
 		if (valid_password) {
-			const token = jwt.sign({ email: user['email'], role: user['role'] }, 'henrysecret', { expiresIn: '1h' });
+			const token = jwt.sign({ email: user['email'], isAdmin: user['isAdmin'] }, 'henrysecret', { expiresIn: '1h' });
 			res.status(201).json({
 				message: 'Logged in succesfully',
 				token: token,
