@@ -1,11 +1,11 @@
 const expect = require('chai').expect;
 const app = require('../app.js');
-var mocha = require('mocha');
-var describe = mocha.describe;
+const mocha = require('mocha');
+const describe = mocha.describe;
 const chai = require('chai');
 chai.use(require('chai-http'));
 
-var it = mocha.it;
+const it = mocha.it;
 
 
 
@@ -17,7 +17,7 @@ describe('Handling tests on flagging cars CRUD endpoints', () => {
 			chai.request(app)
 				.post('/api/v1/flag')
 				.send({
-					car_id: 2,
+					car_id: 3,
 					reason: ' high price',
 					description: 'the price is high'
 				})
@@ -31,7 +31,7 @@ describe('Handling tests on flagging cars CRUD endpoints', () => {
 
 		it('should not create flag report if no params are suplied', (done) => {
 			chai.request(app)
-				.post('/api/v1/flag')
+				.get('/api/v1/flag')
 				.then((res) => {
 					expect(res.status).to.be.equal(400);
 					expect(res.body).to.have.property('message');
@@ -40,7 +40,7 @@ describe('Handling tests on flagging cars CRUD endpoints', () => {
 				.catch(error => done(error));
 		});
 
-		it('should return message if flagged cars are not available', (done) => {
+		it('should return  200 status message if flagged cars are not available', (done) => {
 			chai.request(app)
 				.get('/api/v1/flag')
 				.then((res) => {
@@ -51,20 +51,53 @@ describe('Handling tests on flagging cars CRUD endpoints', () => {
 				.catch(error => done(error));
 		});
 	});
-
-
-
-	describe('/DELETE user to delete aflag', () => {
-		it('should return error if no flagged a user to delete PO', (done) => {
+	describe('/GET flag', () => {
+		it('should return 400 status with a message if flag id is unavailable', (done) => {
 			chai.request(app)
-				.delete('/api/v1/flags/1')
+				.get('/api/v1/flag/9')
 				.then((res) => {
-					expect(res.status).to.be.equal(404);
+					expect(res.status).to.be.equal(400);
 					expect(res.body).to.be.an('object');
-					expect(res.body).to.have.property('message');
+					expect(res.body).to.have.property('Message');
 					done();
 				})
 				.catch(error => done(error));
+		});
+		it('should return 200 status with a message if flag id is available', (done) => {
+			chai.request(app)
+				.get('/api/v1/flag/100')
+				.then((res) => {
+					expect(res.status).to.be.equal(200);
+					expect(res.body).to.be.an('object');
+					expect(res.body).to.have.property('Message');
+					done();
+				})
+				.catch(error => done(error));
+		});
+
+
+		describe('/DELETE user to delete aflag', () => {
+			it('should return error if there is no flagged car', (done) => {
+				chai.request(app)
+					.delete('/api/v1/flags/100')
+					.then((res) => {
+						expect(res.status).to.be.equal(404);
+						expect(res.body).to.be.an('object');
+						done();
+					})
+					.catch(error => done(error));
+			});
+			it('should return 200 status with a message if flag id deleted', (done) => {
+				chai.request(app)
+					.delete('/api/v1/flag/100')
+					.then((res) => {
+						expect(res.status).to.be.equal(200);
+						expect(res.body).to.be.an('object');
+						expect(res.body).to.have.property('Message');
+						done();
+					})
+					.catch(error => done(error));
+			});
 		});
 	});
 });

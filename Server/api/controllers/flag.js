@@ -1,6 +1,13 @@
 
 const val = require('../middleware/UserValidation');
 const cars = require('./car');
+
+
+exports.flaggedcars = () => {
+	return flagList;
+};
+
+
 const flagList = [];
 
 exports.flag_car = (req, res) => {
@@ -23,6 +30,11 @@ exports.flag_car = (req, res) => {
 			Message: 'Sorry, car with that ID is sold already',
 		});
 	}
+	else if (car.status === 'flagged') {
+		res.status(404).json({
+			Message: 'Sorry, car already flagged',
+		});
+	}
 
 	else {
 		const flag = {
@@ -32,8 +44,11 @@ exports.flag_car = (req, res) => {
 			reason: req.body.reason,
 			created_on: new Date(),
 			description: req.body.description,
+			status:'flagged'
+
 		};
 		flagList.push(flag);
+		car['status'] = 'flagged';
 		res.status(201).json({
 			Message: 'Car Flagged',
 			Created_flag: flag
