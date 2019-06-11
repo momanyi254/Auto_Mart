@@ -32,13 +32,50 @@ describe('Handling tests on Orders CRUD endpoints', () => {
 		it('should not create order if  authorization token is not supplied by user', (done) => {
 			chai.request(app)
 				.post('/api/v1/orders')
+				.set('Authorization', token.userToken)
+				.send({
+					car_id: 9,
+					price_offered:65230
+				})
 				.then((res) => {
-					expect(res.status).to.be.equal(401);
+					expect(res.status).to.be.equal(404);
 					expect(res.body).to.have.property('message');
 					done();
 				})
 				.catch(error => done(error));
 		});
+
+		it('should return 404 status code and a message if car ID is not available', (done) => {
+			chai.request(app)
+				.post('/api/v1/orders')
+				.set('Authorization', token.userToken)
+				.send({
+					car_id: 1,
+					price_offered:65230
+				})
+				.then((res) => {
+					expect(res.status).to.be.equal(404);
+					expect(res.body).to.have.property('message');
+					done();
+				})
+				.catch(error => done(error));
+		});
+		
+		it('should return 400 status cod and a message if parameter is not given', (done) => {
+			chai.request(app)
+				.post('/api/v1/orders')
+				.set('Authorization', token.userToken)
+				.send({
+					price_offered:65230
+				})
+				.then((res) => {
+					expect(res.status).to.be.equal(400);
+					expect(res.body).to.have.property('message');
+					done();
+				})
+				.catch(error => done(error));
+		});
+		
 	});
 
 
@@ -70,18 +107,18 @@ describe('Handling tests on Orders CRUD endpoints', () => {
 	});
 
 	describe('/GET a specific order', () => {
-		// it('should return a single order if its available', (done) => {
-		// 	chai.request(app)
-		// 		.get('/api/v1/orders/1')
-		// 		.set('Authorization', token.userToken)
-		// 		.then((res) => {
-		// 			expect(res.status).to.be.equal(200);
-		// 			expect(res.body).to.be.an('object');
-		// 			expect(res.body).to.have.property('message');
-		// 			done();
-		// 		})
-		// 		.catch(error => done(error));
-		// });
+		it('should return a single order if its available', (done) => {
+			chai.request(app)
+				.get('/api/v1/orders/2')
+				.set('Authorization', token.userToken)
+				.then((res) => {
+					expect(res.status).to.be.equal(200);
+					expect(res.body).to.be.an('object');
+					expect(res.body).to.have.property('message');
+					done();
+				})
+				.catch(error => done(error));
+		});
 		
 		it('should return 404 status with a message if order_id is unavailable', (done) => {
 			chai.request(app)
@@ -129,6 +166,17 @@ describe('Handling tests on Orders CRUD endpoints', () => {
 				.then((res) => {
 					expect(res.status).to.be.equal(200);
 					expect(res.body).to.be.an('object');
+					expect(res.body).to.have.property('message');
+					done();
+				})
+				.catch(error => done(error));
+		});
+		it('should return 404 status code with a message if car does not exist', (done) => {
+			chai.request(app)
+				.patch('/api/v1/orders/55')
+				.set('Authorization',token.adminToken)
+				.then((res) => {
+					expect(res.status).to.be.equal(404);
 					expect(res.body).to.have.property('message');
 					done();
 				})
