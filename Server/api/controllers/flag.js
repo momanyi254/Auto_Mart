@@ -10,7 +10,7 @@ exports.flaggedcars = () => {
 
 const flagList = [];
 
-exports.flag_car = (req, res) => {
+exports.flagcar = (req, res) => {
 	const { error } = val.flagValidator(req.body);
 
 	if (error) {
@@ -59,7 +59,7 @@ exports.flag_car = (req, res) => {
 
 };
 
-exports.get_flaggged_cars = (req, res) => {
+exports.getallflaggedcars = (req, res) => {
 
 	if (flagList.length < 1) {
 		return res.status(400).json({
@@ -73,7 +73,22 @@ exports.get_flaggged_cars = (req, res) => {
 	}
 };
 
-exports.delete_flag = (req, res) => {
+exports.getsingleflag = (req, res) => {
+	const flag = flagList.find(f => f.Flag_id === parseInt(req.params.Flag_id));
+	if (!flag) {
+		res.status(404).json({
+			Message: 'flag with that ID does not exist',
+		});
+	}
+	else {
+		res.status(200).json({
+			Message: 'flag Id matchin your search was found',
+			Data: flag
+		});
+	}
+};
+
+exports.deleteflag = (req, res) => {
 
 	const flag = flagList.find(F => F.Flag_id === parseInt(req.params.Flag_id));
 

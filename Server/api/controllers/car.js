@@ -2,7 +2,7 @@
 const val = require('../middleware/UserValidation');
 
 const cloudinary = require('cloudinary').v2;
-const Orders = require('../controllers/order')
+const Orders = require('../controllers/order');
 
 let carsList = [
 	{
@@ -256,7 +256,7 @@ exports.update_cars_status = (req, res, ) => {
 					order['tatus'] = 'closed';
 				}
 			}
-				res.status(200).json({
+			res.status(200).json({
 				Message: 'This car is sold now',
 				Data: car
 			});
