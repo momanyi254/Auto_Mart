@@ -2,6 +2,7 @@
 const val = require('../middleware/UserValidation');
 
 const cloudinary = require('cloudinary').v2;
+const Orders = require('../controllers/order')
 
 let carsList = [
 	{
@@ -12,7 +13,7 @@ let carsList = [
 		'model': 'truck',
 		'price': 9000,
 		'state': 'new',
-		'status': 'sold'
+		'status': 'available'
 	},
 	{
 		'Car_id': 2,
@@ -250,7 +251,12 @@ exports.update_cars_status = (req, res, ) => {
 		else {
 			car['status'] = 'sold';
 
-			res.status(200).json({
+			for ( let order of Orders.allorders()) {
+				if (order.Car_id ===  parseInt(req.params.Car_id)){
+					order['tatus'] = 'closed';
+				}
+			}
+				res.status(200).json({
 				Message: 'This car is sold now',
 				Data: car
 			});

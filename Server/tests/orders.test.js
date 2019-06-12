@@ -75,7 +75,6 @@ describe('Handling tests on Orders CRUD endpoints', () => {
 				})
 				.catch(error => done(error));
 		});
-		
 	});
 
 
@@ -156,12 +155,35 @@ describe('Handling tests on Orders CRUD endpoints', () => {
 				})
 				.catch(error => done(error));
 		});
+		it('should return a 404 error if order does not exist with a message', (done) => {
+			chai.request(app)
+				.patch('/api/v1/orders/9/price')
+				.set('Authorization', token.userToken)
+				.then((res) => {
+					expect(res.status).to.be.equal(404);
+					expect(res.body).to.have.property('message');
+					done();
+				})
+				.catch(error => done(error));
+		});
+		it('should return a 401 error meessage if its not the owner updating the price', (done) => {
+			chai.request(app)
+				.patch('/api/v1/orders/1/price')
+				.set('Authorization', token.adminToken)
+				.then((res) => {
+					expect(res.status).to.be.equal(401);
+					expect(res.body).to.have.property('message');
+					done();
+				})
+				.catch(error => done(error));
+		});
+		
 	});
 
 	describe('/DELETE Admin to delete a Purchase Order', () => {
 		it('should enable an admin to delete PO', (done) => {
 			chai.request(app)
-				.delete('/api/v1/orders/1')
+				.delete('/api/v1/orders/2')
 				.set('Authorization', token.adminToken)
 				.then((res) => {
 					expect(res.status).to.be.equal(200);
@@ -173,11 +195,10 @@ describe('Handling tests on Orders CRUD endpoints', () => {
 		});
 		it('should return 404 status code with a message if car does not exist', (done) => {
 			chai.request(app)
-				.patch('/api/v1/orders/55')
+				.delete('/api/v1/orders/')
 				.set('Authorization',token.adminToken)
 				.then((res) => {
 					expect(res.status).to.be.equal(404);
-					expect(res.body).to.have.property('message');
 					done();
 				})
 				.catch(error => done(error));
@@ -186,6 +207,7 @@ describe('Handling tests on Orders CRUD endpoints', () => {
 		it('should not allow any user who is not admin to delete PO', (done) => {
 			chai.request(app)
 				.delete('/api/v1/orders/1')
+				.set('Authorization',token.userToken)
 				.then((res) => {
 					expect(res.status).to.be.equal(401);
 					expect(res.body).to.have.property('message');

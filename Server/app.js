@@ -43,4 +43,11 @@ app.use((req, res ) => {
 		message: 'error'
 	});
 });
+app.use((req , res) => {
+	res.status(500).json({
+		status : 500,
+		error: 'Internal Server error',
+		message: 'error'
+	});
+});
 module.exports = app;

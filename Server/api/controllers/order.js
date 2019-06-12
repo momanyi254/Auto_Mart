@@ -1,6 +1,11 @@
 
 const val = require('../middleware/UserValidation');
 const cars = require('./car');
+const flagged = require('./flag');
+
+exports.allorders = () => {
+	return ordersList;
+};
 
 const ordersList = [];
 
@@ -29,6 +34,10 @@ exports.create_purchase_order = (req, res) => {
 	}
 	const car = cars.all_cars().find(c => c.Car_id === parseInt(req.body.car_id));
 
+	const flaggedCar = flagged.flaggedcars().find(f => f.car_id === parseInt(req.body.car_id));
+
+	const existingorder = ordersList.find(O => O.Car_id === parseInt(req.body.car_id));
+
 	if (!car) {
 		res.status(404).json({
 			message: 'Car with that ID does not exist',
@@ -36,11 +45,21 @@ exports.create_purchase_order = (req, res) => {
 	}
 
 	else if (car.status === 'sold') {
-		res.status(404).json({
+		res.status(200).json({
 			Message: 'Sorry, car with that ID is sold already',
 		});
 	}
+	else if (existingorder !== undefined  && existingorder['buyer'] === req.decoded['email']) {
+		res.status(200).json({
+			Message: 'Sorry, you already placed your purchase order on this car',
+		});
+	}
 
+	else if (flaggedCar !== undefined ) {
+		res.status(200).json({
+			Message: 'Sorry, car with that ID is flagged and can not be bought',
+		});
+	}
 	else {
 		const order = {
 			Order_id: ordersList.length + 1,
@@ -68,15 +87,10 @@ exports.get_single_order = (req, res) => {
 		});
 	}
 	else {
-
-		res.send(
-
-			res.status(200).json({
-				message: 'This is your Purchase Order:',
-				Purchase_Order: order
-			})
-		);
-
+		res.status(200).json({
+			message: 'This is your Purchase Order:',
+			Purchase_Order: order
+		});
 	}
 };
 
@@ -110,7 +124,7 @@ exports.delete_purchase_orders = (req, res) => {
 	const order = ordersList.find(c => c.Order_id === parseInt(req.params.Order_id));
 
 	if (!order) {
-		res.status(404).json({
+		res.status(200).json({
 			message: 'Order with that ID does not exist',
 		});
 	}
