@@ -171,10 +171,22 @@ describe('Handling tests on Car CRUD endpoints', () => {
 			chai.request(app)
 				.get('/api/v1/cars/admin')
 				.set('Authorization', token.adminToken)
-				.then((res) => {
+				.then((res) => {console.log(res.body)
 					expect(res.status).to.be.equal(200);
 					expect(res.body).to.be.an('object');
 					expect(res.body).to.have.property('Message');
+					done();
+				})
+				.catch(error => done(error));
+		});
+		it('should return a message with 200 status code if there is no car in the saved list', (done) => {
+			chai.request(app)
+				.get('/api/v1/cars/admin')
+				.set('Authorization', token.adminToken)
+				.send({})
+				.then((res) => {console.log(res.body)
+					expect(res.status).to.be.equal(200);
+					expect(res.body).to.be.an('object');
 					done();
 				})
 				.catch(error => done(error));
@@ -183,6 +195,7 @@ describe('Handling tests on Car CRUD endpoints', () => {
 		it('should not give access if admin token is not provided', (done) => {
 			chai.request(app)
 				.get('/api/v1/cars/admin?status=available&min_price=3000&max_price=10000')
+				.set('Authorization', token.userToken)
 				.then((res) => {
 					expect(res.status).to.be.equal(401);
 					expect(res.body).to.have.property('message');
@@ -232,9 +245,10 @@ describe('Handling tests on Car CRUD endpoints', () => {
 		it('should not enable a user to update the status if he/she is not the owner', (done) => {
 			chai.request(app)
 				.patch('/api/v1/cars/1/status')
+				.set('Authorization', token.adminToken)
 				.then((res) => {
 					expect(res.status).to.be.equal(401);
-					expect(res.body).to.have.property('message');
+					expect(res.body).to.have.property('Message');
 					done();
 				})
 				.catch(error => done(error));
@@ -258,6 +272,7 @@ describe('Handling tests on Car CRUD endpoints', () => {
 			chai.request(app)
 				.patch('/api/v1/cars/1/price')
 				.set('Authorization',token.userToken)
+				.send({'price': 8520})
 				.then((res) => {
 					expect(res.status).to.be.equal(200);
 					expect(res.body).to.have.property('Message');
@@ -267,11 +282,12 @@ describe('Handling tests on Car CRUD endpoints', () => {
 		});
 		it('should return 404 status code with a message if car does not exist', (done) => {
 			chai.request(app)
-				.patch('/api/v1/cars/9/status')
+				.patch('/api/v1/cars/9/price')
 				.set('Authorization',token.userToken)
+				.send({'price': 8520})
 				.then((res) => {
 					expect(res.status).to.be.equal(404);
-					expect(res.body).to.have.property('message');
+					expect(res.body).to.have.property('Message');
 					done();
 				})
 				.catch(error => done(error));
@@ -279,8 +295,9 @@ describe('Handling tests on Car CRUD endpoints', () => {
 
 		it('should not enable a user to update the price if he/she is not the owner', (done) => {
 			chai.request(app)
-				.patch('/api/v1/cars/1/price')
+				.patch('/api/v1/cars/2/price')
 				.set('Authorization',token.adminToken)
+				.send({'price': 8520})
 				.then((res) => {
 					expect(res.status).to.be.equal(401);
 					expect(res.body).to.have.property('Message');
@@ -308,7 +325,6 @@ describe('Handling tests on Car CRUD endpoints', () => {
 				.delete('/api/v1/cars/9')
 				.set('Authorization',token.adminToken)
 				.then((res) => {
-					console.log(res.body)
 					expect(res.status).to.be.equal(404);
 					done();
 				})
@@ -321,7 +337,6 @@ describe('Handling tests on Car CRUD endpoints', () => {
 				.delete('/api/v1/cars/2')
 				.set('Authorization',token.userToken)
 				.then((res) => {
-					console.log(res.body)
 					expect(res.status).to.be.equal(401);
 					done();
 				})

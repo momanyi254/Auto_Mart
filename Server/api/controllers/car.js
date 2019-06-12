@@ -213,8 +213,8 @@ exports.admingetallcars = (req, res) => {
 		}
 
 		if (filtered_cars.length < 1) {
-			return res.status(404).json({
-				Status: 400,
+			return res.status(200).json({
+				Status: 200,
 				Message: 'No cars available',
 			});
 		}
