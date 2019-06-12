@@ -15,16 +15,16 @@ const flagRouter = require('./api/router/flags');
 app.use(bodyParse.json());
 app.use(bodyParse.urlencoded({ extended: false }));
 app.use(morgan('dev'));
-app.use((req, res, next) => {
-	res.header('Access-Control-allow-Origin', '*');
-	res.header('Access-Control-allow-headers', 'Origin, content-type, authorization');
+// app.use((req, res, next) => {
+// 	res.header('Access-Control-allow-Origin', '*');
+// 	res.header('Access-Control-allow-headers', 'Origin, content-type, authorization');
 
-	if (req.method === 'options') {
-		req.header('Access-Control-Allow-Methods', 'PUT,POST,PATCH,GET,DELETE');
-		return res.status(200).json({});
-	}
-	next();
-});
+// 	if (req.method === 'options') {
+// 		req.header('Access-Control-Allow-Methods', 'PUT,POST,PATCH,GET,DELETE');
+// 		return res.status(200).json({});
+// 	}
+// 	next();
+// });
 //routes which should handle requests
 
 const api_version = '/api/v1';
