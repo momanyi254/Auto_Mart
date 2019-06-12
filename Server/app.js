@@ -31,23 +31,23 @@ const api_version = '/api/v1';
 
 app.use(api_version + '/users', usersRouter);
 app.use(api_version + '/cars', carsRouter);
-app.use(api_version+'/orders', ordersRouter);
-app.use(api_version+'/flag', flagRouter);
+app.use(api_version + '/orders', ordersRouter);
+app.use(api_version + '/flag', flagRouter);
 
 //error handling
 
-app.use((req, res ) => {
-	res.status(404).json({
-		status: 404,
-		error: 'Wrong request. Route does not exist',
-		message: 'error'
-	});
+app.use((req, res, next) => {
+	const error = new Error('not found');
+	error.status = 404;
+	next(error);
+
 });
-app.use((req , res) => {
-	res.status(500).json({
-		status : 500,
-		error: 'Internal Server error',
-		message: 'error'
+
+app.use((error, req, res,) => {
+	res.status(error.status || 500);
+	res.json({
+
+		error: { message: error.message }
 	});
 });
 module.exports = app;

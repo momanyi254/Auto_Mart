@@ -45,12 +45,12 @@ exports.createOrder = (req, res) => {
 	}
 
 	else if (car.status === 'sold') {
-		res.status(200).json({
+		res.status(404).json({
 			Message: 'Sorry, car with that ID is sold already',
 		});
 	}
 	else if (existingorder !== undefined  && existingorder['buyer'] === req.decoded['email']) {
-		res.status(200).json({
+		res.status(409).json({
 			Message: 'Sorry, you already placed your purchase order on this car',
 		});
 	}
@@ -68,7 +68,6 @@ exports.createOrder = (req, res) => {
 			Created_on: new Date(),
 			price: car.price,
 			price_offered: req.body.price_offered,
-			Status: 'pending',
 		};
 		ordersList.push(order);
 		res.status(201).json({

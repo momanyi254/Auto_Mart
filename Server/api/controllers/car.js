@@ -51,33 +51,40 @@ exports.createcarsaleAD = (req, res) => {
 		api_key: '714216685274696',
 		api_secret: 'ea_KokEBwJnE3x9SJm7gUEJd_Ck'
 	});
-	const path = req.file.path;
-	cloudinary.uploader.upload(
-		path, (err, image) => {
-			if (err) return res.status(400).json({ error: err });
-			else {
-				const url = image['url'];
 
-				const car = {
-					Car_id: carsList.length + 1,
-					email: req.decoded['email'],
-					created_on: new Date(),
-					manufacturer: req.body.manufacturer,
-					model: req.body.model,
-					price: parseInt(req.body.price),
-					state: req.body.state,
-					status: 'available',
-					cloudinary_url: url
-				};
-
-				carsList.push(car);
-				res.status(201).json({
-					message: 'Car posted succesfully',
-					Data: car
-				});
-			}
-		});
-};
+	if (!req.file) return res.status(400).json({
+		status: 400,
+		message: 'Please upload an image',
+	});
+	else{
+		const path = req.file.path;
+		cloudinary.uploader.upload(
+			path, (err, image) => {
+				if (err) return res.status(400).json({ message:error });
+				else {
+					const url = image['url'];
+	
+					const car = {
+						Car_id: carsList.length + 1,
+						email: req.decoded['email'],
+						created_on: new Date(),
+						manufacturer: req.body.manufacturer,
+						model: req.body.model,
+						price: parseInt(req.body.price),
+						state: req.body.state,
+						status: 'available',
+						cloudinary_url: url
+					};
+	
+					carsList.push(car);
+					res.status(201).json({
+						message: 'Car posted succesfully',
+						Data: car
+					});
+				}
+			});
+	}
+};	
 exports.getallcars = (req, res) => {
 	const status = req.query.status;
 	const state = req.query.state;
@@ -94,6 +101,7 @@ exports.getallcars = (req, res) => {
 			}
 		}
 		res.status(200).send({
+			Status: 200,
 			Message: 'All cars',
 			count: filtered_cars.length,
 			Data: filtered_cars
@@ -153,11 +161,13 @@ exports.getallcars = (req, res) => {
 		}
 		if (filtered_cars.length < 1) {
 			return res.status(404).send({
+				Status: 400,
 				Message: 'No cars available',
 			});
 		}
 		else {
 			res.status(200).json({
+				Status: 200,
 				Message: 'All unsold cars',
 				count: filtered_cars.length,
 				filtered_cars: filtered_cars
@@ -168,12 +178,11 @@ exports.getallcars = (req, res) => {
 
 exports.admingetallcars = (req, res) => {
 	const user_role = req.decoded['isAdmin'];
-	if (user_role != 'Yes') {
+	if (user_role != 'True') {
 		return res.status(401).json({
 			message: 'sorry, only admin can view this route'
 		});
 	}
-
 	const status = req.query.status;
 	const max_price = req.query.max_price;
 	const min_price = req.query.min_price;
@@ -181,6 +190,7 @@ exports.admingetallcars = (req, res) => {
 	const filtered_cars = [];
 	if (!status && !max_price && !min_price) {
 		res.status(200).json({
+			Status: 200,
 			Message: 'All cars',
 			count: carsList.lengt,
 			Data: carsList
@@ -204,11 +214,13 @@ exports.admingetallcars = (req, res) => {
 
 		if (filtered_cars.length < 1) {
 			return res.status(404).json({
+				Status: 400,
 				Message: 'No cars available',
 			});
 		}
 		else {
 			res.status(200).send({
+				Status: 200,
 				Message: 'All cars',
 				count: filtered_cars.length,
 				Data: filtered_cars
@@ -217,17 +229,17 @@ exports.admingetallcars = (req, res) => {
 	}
 
 };
-
-
 exports.getspecificcar = (req, res) => {
 	const car = carsList.find(c => c.Car_id === parseInt(req.params.Car_id));
 	if (!car) {
 		res.status(404).json({
+			Status: 404,
 			Message: 'Car with that ID does not exist',
 		});
 	}
 	else {
 		res.status(200).json({
+			Status: 200,
 			Message: 'Car Id matchin your search was found',
 			Data: car
 		});
@@ -239,12 +251,14 @@ exports.updatecarstatus = (req, res, ) => {
 
 	if (!car) {
 		res.status(404).json({
+			Status: 404,
 			message: 'Car with that ID does not exist',
 		});
 	}
 	else {
 		if (car['email'] != req.decoded['email']) {
 			res.status(401).json({
+				Status: 401,
 				Message: 'Not your car, sorry, cant update price'
 			});
 		}
@@ -257,6 +271,7 @@ exports.updatecarstatus = (req, res, ) => {
 				}
 			}
 			res.status(200).json({
+				Status: 200,
 				Message: 'This car is sold now',
 				Data: car
 			});
@@ -268,18 +283,21 @@ exports.updatecarprice = (req, res) => {
 	const car = carsList.find(c => c.Car_id === parseInt(req.params.Car_id));
 	if (!car) {
 		res.status(404).json({
+			Status: 404,
 			Message: 'Car with that ID does not exist',
 		});
 	}
 	else {
 		if (car['email'] != req.decoded['email']) {
 			res.status(401).json({
+				Status: 401,
 				Message: 'Not your car, sorry, cant update price'
 			});
 		}
 		else {
 			car['price'] = req.body.price;
 			res.status(200).json({
+				Status: 200,
 				Message: 'Your car price was succesfully updated',
 				car: car
 			});
@@ -290,13 +308,15 @@ exports.deletecar = (req, res, ) => {
 	const car = carsList.find(c => c.Car_id === parseInt(req.params.Car_id));
 	if (!car) {
 		res.status(404).json({
+			Status: 404,
 			Message: 'Car with that ID does not exist',
 		});
 	}
 	else {
 		const user_role = req.decoded['isAdmin'];
-		if (user_role != 'Yes') {
+		if (user_role != 'True') {
 			return res.status(401).json({
+				Status: 401,
 				message: 'sorry, you dont have rights to delete.'
 			});
 		} else {
@@ -304,6 +324,7 @@ exports.deletecar = (req, res, ) => {
 			carsList.splice(index, 1);
 
 			res.status(200).json({
+				Status: 200,
 				Message: 'This car AD was Deleted succesfully',
 				Deleted: car
 			});

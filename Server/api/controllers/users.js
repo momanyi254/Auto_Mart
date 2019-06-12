@@ -20,7 +20,7 @@ exports.userSignup = (req, res) => {
 		});
 	}
 	else {
-		let isAdmin = req.body.isAdmin === 'Yes' ? 'Yes' : 'No';
+		let isAdmin = req.body.isAdmin === 'True' ? 'True' : 'False';
 		const user = {
 			User_id: userList.length + 1,
 			firstName: req.body.firstName,
