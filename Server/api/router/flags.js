@@ -4,13 +4,15 @@ const flagController = require('../controllers/flag');
 
 
 
-router.post('/', flagController.flag_car);
+router.post('/', flagController.flagcar);
 
 
-router.get('/', flagController.get_flaggged_cars);
+router.get('/', flagController.getallflaggedcars);
+
+router.get('/:Flag_id', flagController.getsingleflag);
 
 
-router.delete('/:Flag_id', flagController.delete_flag);
+router.delete('/:Flag_id', flagController.deleteflag);
 
 
 
