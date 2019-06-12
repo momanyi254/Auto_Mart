@@ -5,7 +5,7 @@ const helpers = require('../middleware/helper');
 const userList = [];
 
 
-exports.user_signup = (req, res) => {
+exports.userSignup = (req, res) => {
 	const { error } = val.signupValidator(req.body);
 
 	if (error) {
@@ -46,7 +46,7 @@ exports.user_signup = (req, res) => {
 
 };
 
-exports.user_signin = (req, res) => {
+exports.userSignin = (req, res) => {
 	const { error } = val.loginValidator(req.body);
 
 	if (error) {

@@ -10,7 +10,7 @@ exports.allorders = () => {
 const ordersList = [];
 
 
-exports.get_all_orders = (req, res) => {
+exports.getAllcars = (req, res) => {
 	if (ordersList.length < 1) {
 		return res.status(200).json({
 			Message: 'No Purchase orders at the moment',
@@ -24,7 +24,7 @@ exports.get_all_orders = (req, res) => {
 	}
 };
 
-exports.create_purchase_order = (req, res) => {
+exports.createOrder = (req, res) => {
 	const { error } = val.orderValidator(req.body);
 
 	if (error) {
@@ -78,7 +78,7 @@ exports.create_purchase_order = (req, res) => {
 	}
 
 };
-exports.get_single_order = (req, res) => {
+exports.getSingleorder = (req, res) => {
 	const order = ordersList.find(c => c.Order_id === parseInt(req.params.Order_id));
 
 	if (!order) {
@@ -94,7 +94,7 @@ exports.get_single_order = (req, res) => {
 	}
 };
 
-exports.update_purchase_order_price = (req, res) => {
+exports.updatePprice = (req, res) => {
 	const order = ordersList.find(c => c.Order_id === parseInt(req.params.Order_id));
 	if (!order) {
 		res.status(404).json({
@@ -119,7 +119,7 @@ exports.update_purchase_order_price = (req, res) => {
 		}
 	}
 };
-exports.delete_purchase_orders = (req, res) => {
+exports.deleteorder = (req, res) => {
 
 	const order = ordersList.find(c => c.Order_id === parseInt(req.params.Order_id));
 
