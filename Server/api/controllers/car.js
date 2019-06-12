@@ -38,7 +38,7 @@ let carsList = [
 exports.all_cars = () => {
 	return carsList;
 };
-exports.create_car_sale_ad = (req, res) => {
+exports.createcarsaleAD = (req, res) => {
 	const { error } = val.carValidator(req.body);
 	if (error) {
 		return res.status(400).json({
@@ -78,7 +78,7 @@ exports.create_car_sale_ad = (req, res) => {
 			}
 		});
 };
-exports.get_all_cars = (req, res) => {
+exports.getallcars = (req, res) => {
 	const status = req.query.status;
 	const state = req.query.state;
 	const manufacturer = req.query.manufacturer;
@@ -166,7 +166,7 @@ exports.get_all_cars = (req, res) => {
 	}
 };
 
-exports.admin_get_all_cars = (req, res) => {
+exports.admingetallcars = (req, res) => {
 	const user_role = req.decoded['isAdmin'];
 	if (user_role != 'Yes') {
 		return res.status(401).json({
@@ -219,7 +219,7 @@ exports.admin_get_all_cars = (req, res) => {
 };
 
 
-exports.get_specific_car = (req, res) => {
+exports.getspecificcar = (req, res) => {
 	const car = carsList.find(c => c.Car_id === parseInt(req.params.Car_id));
 	if (!car) {
 		res.status(404).json({
@@ -234,7 +234,7 @@ exports.get_specific_car = (req, res) => {
 	}
 };
 
-exports.update_cars_status = (req, res, ) => {
+exports.updatecarstatus = (req, res, ) => {
 	const car = carsList.find(c => c.Car_id === parseInt(req.params.Car_id));
 
 	if (!car) {
@@ -264,7 +264,7 @@ exports.update_cars_status = (req, res, ) => {
 	}
 };
 
-exports.update_car_price = (req, res) => {
+exports.updatecarprice = (req, res) => {
 	const car = carsList.find(c => c.Car_id === parseInt(req.params.Car_id));
 	if (!car) {
 		res.status(404).json({
@@ -286,7 +286,7 @@ exports.update_car_price = (req, res) => {
 		}
 	}
 };
-exports.delete_car = (req, res, ) => {
+exports.deletecar = (req, res, ) => {
 	const car = carsList.find(c => c.Car_id === parseInt(req.params.Car_id));
 	if (!car) {
 		res.status(404).json({
