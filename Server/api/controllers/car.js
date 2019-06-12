@@ -267,7 +267,7 @@ exports.updatecarstatus = (req, res, ) => {
 
 			for ( let order of Orders.allorders()) {
 				if (order.Car_id ===  parseInt(req.params.Car_id)){
-					order['tatus'] = 'closed';
+					order['status'] = 'closed';
 				}
 			}
 			res.status(200).json({
