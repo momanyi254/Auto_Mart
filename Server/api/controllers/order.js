@@ -68,6 +68,7 @@ exports.createOrder = (req, res) => {
 			Created_on: new Date(),
 			price: car.price,
 			price_offered: req.body.price_offered,
+			status:'pending'
 		};
 		ordersList.push(order);
 		res.status(201).json({
