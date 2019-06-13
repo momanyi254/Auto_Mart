@@ -38,6 +38,7 @@ exports.userSignup = (req, res) => {
 			isAdmin: user.isAdmin};
 		let token = jwt.sign({ email: user['email'], isAdmin: user['isAdmin'] }, 'henrysecret', { expiresIn: '24h' });
 		res.status(201).json({
+			status:201,
 			Message: 'user created succesfully',
 			Data:newUser,
 			Token: token
@@ -51,6 +52,7 @@ exports.userSignin = (req, res) => {
 
 	if (error) {
 		return res.status(400).json({
+			status:400,
 			message: error.details[0].message
 		});
 	}
@@ -58,6 +60,7 @@ exports.userSignin = (req, res) => {
 
 	if (!user) {
 		return res.status(400).json({
+			status:400,
 			message: 'User with that email does not exist'
 		});
 	}
@@ -66,6 +69,7 @@ exports.userSignin = (req, res) => {
 		if (valid_password) {
 			const token = jwt.sign({ email: user['email'], isAdmin: user['isAdmin'] }, 'henrysecret', { expiresIn: '1h' });
 			res.status(201).json({
+				status:201,
 				message: 'Logged in succesfully',
 				token: token,
 				user_id: user['User_id'],
@@ -75,6 +79,7 @@ exports.userSignin = (req, res) => {
 		}
 		else {
 			res.status(401).json({
+				status:401,
 				message: 'Invalid password'
 			});
 		}

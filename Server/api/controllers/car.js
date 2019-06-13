@@ -42,6 +42,7 @@ exports.createcarsaleAD = (req, res) => {
 	const { error } = val.carValidator(req.body);
 	if (error) {
 		return res.status(400).json({
+			status: 400,
 			message: error.details[0].message
 		});
 	}
@@ -78,6 +79,7 @@ exports.createcarsaleAD = (req, res) => {
 	
 					carsList.push(car);
 					res.status(201).json({
+						status: 201,
 						message: 'Car posted succesfully',
 						Data: car
 					});
@@ -111,6 +113,7 @@ exports.getallcars = (req, res) => {
 		//view available only
 		if (status && status !== 'available') {
 			return res.status(400).json({
+				status: 400,
 				message: 'sorry, you can only view available cars'
 			});
 		}
@@ -180,6 +183,7 @@ exports.admingetallcars = (req, res) => {
 	const user_role = req.decoded['isAdmin'];
 	if (user_role != 'True') {
 		return res.status(401).json({
+			status:401,
 			message: 'sorry, only admin can view this route'
 		});
 	}
