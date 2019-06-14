@@ -97,6 +97,11 @@ describe('Handling tests on flagging cars CRUD endpoints', () => {
 			it('should return 200 status with a message if flag id deleted', (done) => {
 				chai.request(app)
 					.delete('/api/v1/flag/1')
+					.send({
+						'car_id': 2,
+						'reason': 'Inflated price',
+						'description': 'the price is very high'
+					})
 					.then((res) => {
 						expect(res.status).to.be.equal(200);
 						expect(res.body).to.be.an('object');

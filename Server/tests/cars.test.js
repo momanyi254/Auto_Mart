@@ -308,18 +308,7 @@ describe('Handling tests on Car CRUD endpoints', () => {
 	});
 
 	describe('/DELETE Admin to delete a car advert', () => {
-		it('should enable an admin to delete a car Advert', (done) => {
-			chai.request(app)
-				.delete('/api/v1/cars/1')
-				.set('Authorization', token.adminToken)
-				.then((res) => {
-					expect(res.status).to.be.equal(200);
-					expect(res.body).to.be.an('object');
-					expect(res.body).to.have.property('Message');
-					done();
-				})
-				.catch(error => done(error));
-		});
+		
 		it('should return 404 status code with a message if car does not exist', (done) => {
 			chai.request(app)
 				.delete('/api/v1/cars/9')
@@ -336,12 +325,24 @@ describe('Handling tests on Car CRUD endpoints', () => {
 			chai.request(app)
 				.delete('/api/v1/cars/2')
 				.set('Authorization',token.userToken)
-				.then((res) => {
+				.then((res) => { console.log(res.body)
 					expect(res.status).to.be.equal(401);
 					done();
 				})
 				.catch(error => done(error));
 		});
+		it('should enable an admin to delete a car Advert', (done) => {
+			chai.request(app)
+				.delete('/api/v1/cars/1')
+				.set('Authorization', token.adminToken)
+				.then((res) => {
+					expect(res.status).to.be.equal(200);
+					expect(res.body).to.be.an('object');
+					expect(res.body).to.have.property('Message');
+					done();
+				})
+				.catch(error => done(error));
 		});
-	// });
+	});
+
 });

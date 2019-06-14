@@ -10,12 +10,14 @@ exports.userSignup = (req, res) => {
 
 	if (error) {
 		return res.status(400).json({
+			status:400,
 			message: error.details[0].message
 		});
 	}
 	const user = userList.find(u => u.email === (req.body.email));
 	if (user) {
 		return res.status(409).json({
+			status:409,
 			message: 'email already exists'
 		});
 	}
@@ -61,7 +63,7 @@ exports.userSignin = (req, res) => {
 	if (!user) {
 		return res.status(400).json({
 			status:400,
-			message: 'User with that email does not exist'
+			message: '`User with that email does not exist`'
 		});
 	}
 	else {
@@ -71,10 +73,10 @@ exports.userSignin = (req, res) => {
 			res.status(201).json({
 				status:201,
 				message: 'Logged in succesfully',
-				token: token,
 				user_id: user['User_id'],
 				firstName: user['firstName'],
-				lastName: user['lastName']
+				lastName: user['lastName'],
+				token: token,
 			});
 		}
 		else {

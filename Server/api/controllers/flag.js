@@ -67,8 +67,8 @@ exports.flagcar = (req, res) => {
 exports.getallflaggedcars = (req, res) => {
 
 	if (flagList.length < 1) {
-		return res.status(400).json({
-			status:400,
+		return res.status(404).json({
+			status:404,
 			Message: 'No flagged cars at moment',
 		});
 	} else {
