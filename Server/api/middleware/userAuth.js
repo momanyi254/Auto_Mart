@@ -5,10 +5,9 @@ module.exports = (req, res, next) => {
 
 
 	let token = req.headers.authorization;
-	if (!token) {
+	if (!token || '') {
 		return res.status(401).json({
 			status:401,
-			success: false,
 			message: 'Token not given',
 		});
 	}
@@ -21,7 +20,6 @@ module.exports = (req, res, next) => {
 			if (err) {
 				return res.json({
 					status:400,
-					success: false,
 					message: 'Token is not valid',
 				});
 			}

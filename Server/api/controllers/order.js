@@ -12,11 +12,13 @@ const ordersList = [];
 
 exports.getAllcars = (req, res) => {
 	if (ordersList.length < 1) {
-		return res.status(200).json({
+		return res.status(404).json({
+			status: 404,
 			Message: 'No Purchase orders at the moment',
 		});
 	} else {
 		res.status(200).json({
+			status: 200,
 			count: ordersList.length,
 			Message: 'All Purchase Orders',
 			Purchase_Orders: ordersList
@@ -29,6 +31,7 @@ exports.createOrder = (req, res) => {
 
 	if (error) {
 		return res.status(400).json({
+			status: 400,
 			message: error.details[0].message
 		});
 	}
@@ -40,26 +43,27 @@ exports.createOrder = (req, res) => {
 
 	if (!car) {
 		res.status(404).json({
-			status:404,
+			status: 404,
 			message: 'Car with that ID does not exist',
 		});
 	}
 
 	else if (car.status === 'sold') {
 		res.status(404).json({
-			status:404,
+			status: 404,
 			Message: 'Sorry, car with that ID is sold already',
 		});
 	}
-	else if (existingorder !== undefined  && existingorder['buyer'] === req.decoded['email']) {
+	else if (existingorder !== undefined && existingorder['buyer'] === req.decoded['email']) {
 		res.status(409).json({
+			status: 409,
 			Message: 'Sorry, you already placed your purchase order on this car',
 		});
 	}
 
-	else if (flaggedCar !== undefined ) {
-		res.status(200).json({
-			status:200,
+	else if (flaggedCar !== undefined) {
+		res.status(404).json({
+			status: 404,
 			Message: 'Sorry, car with that ID is flagged and can not be bought',
 		});
 	}
@@ -71,11 +75,11 @@ exports.createOrder = (req, res) => {
 			Created_on: new Date(),
 			price: car.price,
 			price_offered: req.body.price_offered,
-			status:'pending'
+			status: 'pending'
 		};
 		ordersList.push(order);
 		res.status(201).json({
-			status:201,
+			status: 201,
 			message: 'Purchase Order created succesfully',
 			Created_Order: order
 		});
@@ -93,6 +97,7 @@ exports.getSingleorder = (req, res) => {
 	}
 	else {
 		res.status(200).json({
+			status: 200,
 			message: 'This is your Purchase Order:',
 			Purchase_Order: order
 		});
@@ -103,14 +108,14 @@ exports.updatePprice = (req, res) => {
 	const order = ordersList.find(c => c.Order_id === parseInt(req.params.Order_id));
 	if (!order) {
 		res.status(404).json({
-			status:404,
+			status: 404,
 			message: 'Order with that ID does not exist',
 		});
 	} else {
 
 		if (order['buyer'] != req.decoded['email']) {
 			res.status(401).json({
-				status:401,
+				status: 401,
 				message: 'Not your order, sorry, cant update price'
 			});
 		}
@@ -120,7 +125,7 @@ exports.updatePprice = (req, res) => {
 
 
 			res.status(200).json({
-				status:200,
+				status: 200,
 				message: 'Your PO price was succesfully updated',
 				Purchase_Order: order
 			});
@@ -132,25 +137,26 @@ exports.deleteorder = (req, res) => {
 	const order = ordersList.find(c => c.Order_id === parseInt(req.params.Order_id));
 
 	if (!order) {
-		res.status(200).json({
-			status:200,
+		res.status(404).json({
+			status: 404,
 			message: 'Order with that ID does not exist',
 		});
 	}
 
 	else {
 		const user_role = req.decoded['isAdmin'];
-		if (user_role != 'Yes') {
+		if (user_role != 'True') {
 			return res.status(401).json({
-				status:401,
+				Status: 401,
 				message: 'sorry, you dont have rights to delete.'
 			});
-		} else {
+		}
+		else {
 			const index = ordersList.indexOf(order);
 			ordersList.splice(index, 1);
 
 			res.status(200).json({
-				status:200,
+				status: 200,
 				message: 'This order was Deleted from Our System',
 				Deleted: order
 			});

@@ -19,10 +19,10 @@ describe('Handling tests on Orders CRUD endpoints', () => {
 				.set('Authorization', token.userToken)
 				.send({
 					car_id: 2,
-					price_offered:65230
+					price_offered: 65230
 				})
 				.then(res => {
-					expect(res.status).to.be.equal(201);	
+					expect(res.status).to.be.equal(201);
 					expect(res.body).to.be.an('object');
 					done();
 				})
@@ -35,7 +35,7 @@ describe('Handling tests on Orders CRUD endpoints', () => {
 				.set('Authorization', token.userToken)
 				.send({
 					car_id: 9,
-					price_offered:65230
+					price_offered: 65230
 				})
 				.then((res) => {
 					expect(res.status).to.be.equal(404);
@@ -51,7 +51,7 @@ describe('Handling tests on Orders CRUD endpoints', () => {
 				.set('Authorization', token.userToken)
 				.send({
 					car_id: 1,
-					price_offered:65230
+					price_offered: 65230
 				})
 				.then((res) => {
 					expect(res.status).to.be.equal(404);
@@ -60,13 +60,13 @@ describe('Handling tests on Orders CRUD endpoints', () => {
 				})
 				.catch(error => done(error));
 		});
-		
+
 		it('should return 400 status cod and a message if parameter is not given', (done) => {
 			chai.request(app)
 				.post('/api/v1/orders')
 				.set('Authorization', token.userToken)
 				.send({
-					price_offered:65230
+					price_offered: 65230
 				})
 				.then((res) => {
 					expect(res.status).to.be.equal(400);
@@ -118,11 +118,11 @@ describe('Handling tests on Orders CRUD endpoints', () => {
 				})
 				.catch(error => done(error));
 		});
-		
+
 		it('should return 404 status with a message if order_id is unavailable', (done) => {
 			chai.request(app)
 				.get('/api/v1/orders/9')
-				.set('Authorization',token.userToken)
+				.set('Authorization', token.userToken)
 				.then((res) => {
 					expect(res.status).to.be.equal(404);
 					expect(res.body).to.have.property('message');
@@ -177,27 +177,21 @@ describe('Handling tests on Orders CRUD endpoints', () => {
 				})
 				.catch(error => done(error));
 		});
-		
+
 	});
 
 	describe('/DELETE Admin to delete a Purchase Order', () => {
-		it('should enable an admin to delete PO', (done) => {
-			chai.request(app)
-				.delete('/api/v1/orders/2')
-				.set('Authorization', token.adminToken)
-				.then((res) => {
-					expect(res.status).to.be.equal(200);
-					expect(res.body).to.be.an('object');
-					expect(res.body).to.have.property('message');
-					done();
-				})
-				.catch(error => done(error));
-		});
+
 		it('should return 404 status code with a message if car does not exist', (done) => {
 			chai.request(app)
-				.delete('/api/v1/orders/')
-				.set('Authorization',token.adminToken)
+				.delete('/api/v1/orders/7')
+				.send({
+					'car_id': 1,
+					'price_offered': 95200
+				})
+				.set('Authorization', token.adminToken)
 				.then((res) => {
+					console.log(res.body)
 					expect(res.status).to.be.equal(404);
 					done();
 				})
@@ -207,9 +201,30 @@ describe('Handling tests on Orders CRUD endpoints', () => {
 		it('should not allow any user who is not admin to delete PO', (done) => {
 			chai.request(app)
 				.delete('/api/v1/orders/1')
-				.set('Authorization',token.userToken)
+				.send({
+					'car_id': 2,
+					'price_offered': 95200
+				})
+				.set('Authorization', token.userToken)
 				.then((res) => {
+					console.log(res.body)
 					expect(res.status).to.be.equal(401);
+					expect(res.body).to.have.property('message');
+					done();
+				})
+				.catch(error => done(error));
+		});
+		it('should enable an admin to delete PO', (done) => {
+			chai.request(app)
+				.delete('/api/v1/orders/1')
+				.send({
+					'car_id': 1,
+					'price_offered': 95200
+				})
+				.set('Authorization', token.adminToken)
+				.then((res) => {
+					expect(res.status).to.be.equal(200);
+					expect(res.body).to.be.an('object');
 					expect(res.body).to.have.property('message');
 					done();
 				})
