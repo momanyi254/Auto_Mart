@@ -9,22 +9,24 @@
     <link rel="stylesheet" href="../css/main.css">
     <script src="../js/main.js"></script>
 </head>
-
 <body>
-    <div class="container">
-        <div class="header">
-            <span id="logo"> Auto Mart</span>
-            <ul>
-                <li>
-
-                    <a href="index.html">Log Out</a>
-                </li>
-                <li>
-                    <a href="user_page.html">My Dashboard</a>
-                </li>
-            </ul>
-        </div>
-        <hr>
+        <div class="container">
+            <div class="header">
+                <span id="logo">
+                    <a href="index.html">Auto Mart</a>
+                </span>
+                <ul>
+                    <li>
+                        <a href="index.html">Log Out</a>
+                    </li>
+                    <li>
+                        <a href="reset_password.html">Change Password</a>
+                    </li>
+                    <li>
+                        <a href="user_dashboard.html">My Cars</a>
+                    </li>
+            </div>
+            <hr>
         <div class="user">
             <caption>
                 <b>My Activities</b>
@@ -33,7 +35,11 @@
 
             <h6>Logged In: Henry Momanyi</h6>
 
-
+            <div> 
+                    <button id="submit" onclick="open()">
+                            <a href="user_page.html" id ="lgbtn">Back</a>
+                        </button>
+                        </div>
             <table id="myTable" class="tb01">
                 <caption>
                     <b>My Sale Adverts.</b>
@@ -142,6 +148,8 @@
                     </td>
                 </tr>
             </table>
+            <br>
+            
         </div>
         <hr>
         <div class="footer">
