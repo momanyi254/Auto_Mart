@@ -19,9 +19,9 @@ app.use(bodyParse.urlencoded({ extended: false }));
 // // app.use(morgan('dev'));
 // //routes which should handle requests
 
-// // const api_version = '/api/v1';
+const api_version = '/v1';
 
-app.use('/users', usersRouter);
+app.use(api_version + '/users', usersRouter);
 // // app.use(api_version + '/cars', carsRouter);
 // // app.use(api_version + '/orders', ordersRouter);
 // // app.use(api_version + '/flag', flagRouter);

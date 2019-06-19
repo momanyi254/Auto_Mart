@@ -6,7 +6,7 @@ import userController  from'../controllers/users';
 
 router.post('/signup', userController.userSignup);
 
-// router.post('/login', userController.userSignin);
+router.post('/login', userController.userSignin);
 
 
 module.exports = router;

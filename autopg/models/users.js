@@ -1,42 +1,32 @@
-// import moment from 'moment';
-// import uuid from 'uuid';
 import db from '../db/index';
-import userQueries from '../db/user'
+import userQueries from '../db/migrations'
 class User {
-  // creating the user
-  async createUser(data) {
-    this.newUser = [
-      data.firstName,
-      data.lastName,
-      data.homeAddress,
-      data.email,
-      data.password,
-      data.isAdmin
-      
+
+  createUser(data) {
+    const insertUser = `INSERT INTO
+    users(firstName, lastName, homeAddress, email, password,isAdmin)
+    VALUES($1, $2, $3, $4, $5, $6)
+    ON CONFLICT DO NOTHING returning *`;
+    const {
+      firstName, lastName, homeAddress, email, password,isAdmin
+    } = data;
+    
+    const user = [
+      firstName, lastName, homeAddress, email, password,isAdmin,
     ];
-    console.log(this.newUser)
-    try {
-      const user = await db.query(userQueries.insertUser,
-      this.newUser);
-      console.log(user)
-      return user.rows[0];
-    } catch (err) {
-      console.log(err);
-      return false;
-    }
+    
+    const response = db.query(insertUser, user);
+    return response;
   }
-   async findEmail(email) {
-     
-    try {
-      const user = await db.query(userQueries.findEmail, [email]);
-      console.log(user)
-      return user.rows[0];
-    } catch (err) {
-      console.log(err);
-      return false;
+
+    //find email
+    findOne(email) {
+      const query = 'SELECT * FROM users WHERE email=$1';
+      const response = db.query(query, [email]);
+      return response;
     }
-  }
-}
 
 
-export default new User();
+  }
+  
+  export default new User();
