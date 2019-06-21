@@ -11,16 +11,15 @@ users(
 )`;
 const createTableCars = `
 CREATE TABLE IF NOT EXISTS cars(
-  id SERIAL PRIMARY KEY,
-  owner INTEGER REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE NOT NULL,
+  Car_id SERIAL PRIMARY KEY,
+  email VARCHAR(128) NOT NULL,
   price INTEGER NOT NULL,
   model VARCHAR(128) NOT NULL,
   manufacturer VARCHAR(128) NOT NULL,
   state VARCHAR(128) NOT NULL,
   status VARCHAR(128) NOT NULL,
-  body_type VARCHAR(128) NOT NULL,
-  created_date TIMESTAMP,
-  modified_date TIMESTAMP
+  cloudinary_url VARCHAR(250) NOT NULL,
+  created_date TIMESTAMP
 )`;
 
 
@@ -31,6 +30,7 @@ const dropTableCars = 'DROP TABLE IF EXISTS Cars';
 
 export default {
   createTableUsers,
+  createTableCars,
   dropTableUsers,
 };
 

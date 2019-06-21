@@ -4,7 +4,7 @@ class User {
 
   createUser(data) {
     const insertUser = `INSERT INTO
-    users(firstName, lastName, homeAddress, email, password,isAdmin)
+    users(firstName, lastName, homeAddress, email, password, isAdmin)
     VALUES($1, $2, $3, $4, $5, $6)
     ON CONFLICT DO NOTHING returning *`;
     const {
