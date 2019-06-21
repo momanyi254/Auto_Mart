@@ -42,10 +42,21 @@ const createTableCars = async () => {
       pool.end();
     });
 };
+const createTableOrders = async () => {
+  const queryText = userQueries.createTableOrders;
+  await pool.query(queryText)
+    .then(() => {
+    })
+    .catch((err) => {
+      console.log(err);
+      pool.end();
+    });
+};
 
 const createTables = async () => {
   await createTableUsers();
   await createTableCars();
+  await createTableOrders();
 
 
   console.log('Tables have been created');

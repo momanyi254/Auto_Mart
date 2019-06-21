@@ -5,8 +5,8 @@ import bodyParse from'body-parser';
 const app = express();
 import usersRouter from './router/users'
 import carsRouter from './router/cars'
+import ordersRouter from './router/orders'
 
-// // const ordersRouter = require('./api/router/orders');
 // // const flagRouter = require('./api/router/flags');
 
 
@@ -20,15 +20,16 @@ const api_version = '/api/v2';
 
 app.use(api_version + '/users', usersRouter);
 app.use(api_version + '/cars', carsRouter);
-// // app.use(api_version + '/orders', ordersRouter);
+app.use(api_version + '/orders', ordersRouter);
 // // app.use(api_version + '/flag', flagRouter);
 
 // //error handling
 
-app.use((req, res, next) => {
-	const error = new Error('Route not found');
-	error.status = 404;
-	next(error);
+app.use((req, res) => {
+	res.status(404),json({
+		status:404,
+		message:'Route does not exist'
+	})
 
 });
 

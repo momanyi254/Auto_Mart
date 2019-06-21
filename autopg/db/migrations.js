@@ -21,16 +21,30 @@ CREATE TABLE IF NOT EXISTS cars(
   cloudinary_url VARCHAR(250) NOT NULL,
   created_date TIMESTAMP
 )`;
+const createTableOrders = `
+CREATE TABLE IF NOT EXISTS orders(
+  Order_id SERIAL PRIMARY KEY,
+  Car_id INTEGER NOT NULL,
+  price INTEGER NOT NULL,
+  buyer VARCHAR(128) NOT NULL,
+  status VARCHAR(128) NOT NULL,
+  price_offered INTEGER NOT NULL,
+  created_date TIMESTAMP
+)`;
 
 
 const dropTableUsers = 'DROP TABLE IF EXISTS users';
-const dropTableCars = 'DROP TABLE IF EXISTS Cars';
+const dropTableCars = 'DROP TABLE IF EXISTS cars';
+const dropTableOrders = 'DROP TABLE IF EXISTS orders';
 
 
 
 export default {
   createTableUsers,
   createTableCars,
+  createTableOrders,
   dropTableUsers,
+  dropTableCars,
+  dropTableOrders
 };
 
