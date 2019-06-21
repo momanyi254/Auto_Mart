@@ -30,6 +30,5 @@ const userAuth = (req, res, next) => {
 		});
 	}
 };
-export default{
-    userAuth
-}
+export default userAuth;
+

@@ -1,2 +1,2 @@
-import { createTables } from './init';
+import { createTables } from './index';
 createTables();
